@@ -1,0 +1,39 @@
+// %glassmorphism {
+//     background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.35)0%, rgba(255, 255, 255, 0.15)68%, rgba(255, 255, 255, .65));
+//     backdrop-filter: blur(3px) brightness(105%) contrast(110%);
+//     box-shadow: 2px 2px 2px rgba(201, 201, 201, .5);
+//     //↑容器陰影(較常用)：僅外圍部分有陰影
+
+//     // filter: drop-shadow(2px 2px 2px rgb(166, 166, 166) ); 
+//     // ↑整個物件包含內容都有陰影(遇到半透明會看起來髒髒) 
+//     /*玻璃擬態*/
+// } 因為RWD的media裡面不能用繼承，所以改寫到mixin裡
+
+%box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%img-cover {
+    // width: 100%; 已在reset檔中設定過
+    height: 100%;
+    object-fit: cover;
+}
+
+// 多行省略
+%line-multiple {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    // ↓行數改於區塊中設定(因為可能其他地方行數會改變)
+    // -webkit-line-clamp: ;
+}
+
+// 單行省略
+%line-single {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,242 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+/* 重置內容字體(非襯線體)、行高 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  /*光學尺寸(若字體有支援依照裝置大小改變線條粗細)*/
+  line-height: 1.5;
+}
+
+/* 重置標題字重 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* 重置清單符號 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連結 */
+a {
+  display: block;
+  /*將a預設的inline改為block，才能設定間距及寬高給超連結空間，排版上較方便*/
+  color: plum;
+  /*直接設定連結顏色*/
+  text-decoration: none;
+}
+
+/*自訂捲軸樣式*/
+/*reset end*/
+/*共用樣式區開始*/
+body {
+  background-color: darkcyan;
+  background-image: url(../images/patter.jpg);
+  color: white;
+}
+body h3.title {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+section {
+  height: 50vh;
+  max-width: 80%;
+  border: 1px blue solid;
+  padding: 5%;
+}
+
+/*共用樣式區結束*/
+header {
+  position: relative;
+}
+header .banner_border {
+  height: 100vh;
+  width: 100%;
+  clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 100%, 100% 100%, 100% 0%);
+  background-color: rgb(35, 32, 61);
+  position: absolute;
+}
+header #banner {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../images/MainVisual.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 1px red solid;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 5%;
+}
+header #banner .event_title {
+  display: block;
+  justify-self: end;
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+header #banner .event_title h1 {
+  font-size: 2rem;
+}
+header #banner .event_title h2 {
+  font-size: 1.4rem;
+}
+header #banner .event_title h3 {
+  font-size: 1.2rem;
+}
+header #banner .news_carousel {
+  width: 350px;
+  height: 150px;
+  background-color: bisque;
+  align-items: end;
+}
+
+nav {
+  border: 2px rgb(187, 255, 0) solid;
+  position: sticky;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+nav ul li {
+  margin: 5px 10px;
+}
+nav ul li a:hover {
+  color: lightsalmon;
+  text-decoration: underline;
+}
+
+#intro {
+  border: 1px lightcoral solid;
+}
+#intro .story {
+  margin-top: 16px;
+  text-align: center;
+}
+
+#secret {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+#secret .content {
+  padding: 5%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+#secret #video-bg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}/*# sourceMappingURL=style.css.map */

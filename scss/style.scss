@@ -1,0 +1,142 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'function' as *;
+
+/*共用樣式區開始*/
+body {
+    background-color: darkcyan;
+    background-image: url(../images/patter.jpg);
+    color: white;
+
+    h3.title {
+        text-align: center;
+        font-size: $font-size-xl ;
+    }
+
+}
+
+section {
+    height: 50vh;
+    max-width: 80%;
+    border: 1px blue solid;
+    padding: 5%;
+
+    
+}
+
+/*共用樣式區結束*/
+
+header {
+    position: relative;
+
+    .banner_border {
+        height: 100vh;
+        width: 100%;
+        clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 100%, 100% 100%, 100% 0%);
+        background-color: rgb(35, 32, 61);
+        position: absolute;
+    }
+
+    #banner {
+        height: 100vh;
+        width: 100%;
+        background-image: url(../images/MainVisual.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border: 1px red solid;
+        background-attachment: fixed; //視差效果
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding: 5%;
+        
+
+        .event_title {
+            display: block;
+            justify-self: end;
+            border: 1px solid lightgrey;
+            text-align: center;
+
+            h1 {
+                font-size: $font-size-xxxl;
+            }
+
+            h2 {
+                font-size: $font-size-xl;
+            }
+
+            h3 {
+                font-size: $font-size-l;
+            }
+        }
+
+        .news_carousel {
+            width: 350px;
+            height: 150px;
+            background-color: bisque;
+            align-items: end;
+        }
+    }
+}
+
+
+nav {
+    border: 2px rgb(187, 255, 0) solid;
+    position: sticky;
+    z-index: 99;
+    top: 0;
+    left: 0;
+
+    ul {
+        display: flex;
+        justify-content: flex-end;
+
+        li {
+            margin: 5px 10px;
+
+            a {
+                &:hover {
+                    color: lightsalmon;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+
+#intro {
+    border: 1px lightcoral solid;
+
+    .story {
+        margin-top: $interval-m ;
+        text-align: center;
+    }
+}
+
+#secret {
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+
+    .content {
+        padding: 5%;
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+
+    }
+
+    #video-bg {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        // 混合模式修圖
+        // mix-blend-mode: overlay;
+        filter: brightness(70%);
+
+    }
+}

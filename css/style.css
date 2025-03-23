@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -35,7 +36,6 @@ kbd,
 q,
 s,
 samp,
-small,
 strike,
 strong,
 sub,
@@ -132,6 +132,10 @@ a {
 /*自訂捲軸樣式*/
 /*reset end*/
 /*共用樣式區開始*/
+html {
+  scroll-behavior: smooth; /* 讓滾動有平滑效果 */
+}
+
 body {
   background-color: darkcyan;
   background-image: url(../images/patter.jpg);
@@ -139,14 +143,19 @@ body {
 }
 body h3.title {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-family: "MonteCarlo", cursive;
 }
 
 section {
   height: 50vh;
-  max-width: 80%;
   border: 1px blue solid;
   padding: 5%;
+  justify-items: center;
+}
+section .preview {
+  font-size: 1.4rem;
+  margin-top: 50px;
 }
 
 /*共用樣式區結束*/
@@ -223,6 +232,37 @@ nav ul li a:hover {
   text-align: center;
 }
 
+#date div {
+  text-align: center;
+}
+#date div p {
+  margin: 10px 0;
+}
+#date .p_date {
+  font-size: 2rem;
+}
+#date .p_time {
+  font-size: 1.8rem;
+}
+#date .p_venue {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+}
+#date .p_venue a {
+  display: flex;
+  align-self: center;
+  margin-left: 10px;
+  transition: transform 0.1s ease-in-out;
+}
+#date .p_venue a .fa-map-location-dot {
+  color: lightgray;
+}
+#date .p_venue a:hover {
+  transform: scale(0.9);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 #secret {
   overflow: hidden;
   position: relative;
@@ -234,9 +274,62 @@ nav ul li a:hover {
   position: absolute;
   z-index: 10;
 }
+#secret .content p {
+  text-align: center;
+}
 #secret #video-bg {
   height: 100%;
   width: 100%;
   object-fit: cover;
   filter: brightness(70%);
+}
+
+#contact .staff {
+  width: 80%;
+}
+#contact .staff ul {
+  display: flex;
+  margin: auto;
+  border: 1px lavender solid;
+  justify-content: space-around;
+}
+#contact .staff ul li {
+  width: 80px;
+  height: 80px;
+  background-color: aliceblue;
+  clip-path: circle(50% at 50% 50%);
+}
+
+#links .app {
+  justify-items: center;
+}
+#links .app img {
+  width: 200px;
+  height: 200px;
+  border-radius: 40px;
+}
+#links .brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#links .brand .fa-apple {
+  color: white;
+  font-size: 90px;
+  transition: transform 0.1s ease-in-out;
+}
+#links .brand .fa-apple:hover {
+  transform: scale(0.92);
+}
+#links .brand .fa-google-play {
+  color: white;
+  font-size: 75px;
+  transition: transform 0.1s ease-in-out;
+}
+#links .brand .fa-google-play:hover {
+  transform: scale(0.92);
+}
+
+footer {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

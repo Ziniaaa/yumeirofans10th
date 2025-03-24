@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&family=Shippori+Mincho&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -133,13 +133,15 @@ a {
 /*reset end*/
 /*共用樣式區開始*/
 html {
-  scroll-behavior: smooth; /* 讓滾動有平滑效果 */
+  scroll-behavior: smooth;
+  /* 讓滾動有平滑效果 */
 }
 
 body {
   background-color: darkcyan;
   background-image: url(../images/patter.jpg);
   color: white;
+  font-family: "Shippori Mincho", serif;
 }
 body h3.title {
   text-align: center;
@@ -148,10 +150,12 @@ body h3.title {
 }
 
 section {
-  height: 50vh;
+  width: 100%;
+  justify-self: center;
   border: 1px blue solid;
   padding: 5%;
   justify-items: center;
+  background-image: url(../images/patter.jpg);
 }
 section .preview {
   font-size: 1.4rem;
@@ -240,9 +244,13 @@ nav ul li a:hover {
 }
 #date .p_date {
   font-size: 2rem;
+  font-family: "MonteCarlo", cursive;
+  letter-spacing: 3px;
 }
 #date .p_time {
   font-size: 1.8rem;
+  font-family: "MonteCarlo", cursive;
+  letter-spacing: 3px;
 }
 #date .p_venue {
   font-size: 1.4rem;
@@ -262,11 +270,101 @@ nav ul li a:hover {
   transform: scale(0.9);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
+#date .small {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+#event .event_wrap img {
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+}
+#event .event_wrap div {
+  display: flex;
+  margin: 80px 0;
+  align-items: center;
+}
+#event .event_wrap div .txt_content {
+  flex-direction: column;
+  margin: 0 80px;
+}
+#event .event_wrap div .txt_content h4 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+#cast {
+  width: 100%;
+  overflow: hidden;
+}
+#cast .carousel-container {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#cast .carousel {
+  display: flex;
+  width: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+#cast .carousel .carousel-item {
+  flex: 0 0 33.3333333333%;
+  padding: 0 30px;
+  opacity: 0.5;
+}
+#cast .carousel .carousel-item .active {
+  opacity: 1;
+}
+#cast .carousel .carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#cast .carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 50px;
+}
+#cast .carousel-controls .carousel-control {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+#cast .carousel-controls .carousel-control:hover {
+  background-color: #555;
+}
+#cast .carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+#cast .carousel-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#cast .carousel-indicators .active {
+  background-color: #333;
+}
 
 #secret {
+  height: 100vh;
   overflow: hidden;
   position: relative;
   padding: 0;
+  background-image: none;
 }
 #secret .content {
   padding: 5%;
@@ -278,28 +376,23 @@ nav ul li a:hover {
   text-align: center;
 }
 #secret #video-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 讓影片居中 */
+  z-index: -10;
+  /* 確保影片在最底層 */
   height: 100%;
   width: 100%;
   object-fit: cover;
   filter: brightness(70%);
 }
 
-#contact .staff {
-  width: 80%;
+#links p {
+  text-align: center;
+  margin: 15px 0;
 }
-#contact .staff ul {
-  display: flex;
-  margin: auto;
-  border: 1px lavender solid;
-  justify-content: space-around;
-}
-#contact .staff ul li {
-  width: 80px;
-  height: 80px;
-  background-color: aliceblue;
-  clip-path: circle(50% at 50% 50%);
-}
-
 #links .app {
   justify-items: center;
 }
@@ -310,7 +403,8 @@ nav ul li a:hover {
 }
 #links .brand {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 80px;
   align-items: center;
 }
 #links .brand .fa-apple {
@@ -330,6 +424,23 @@ nav ul li a:hover {
   transform: scale(0.92);
 }
 
+#contact .staff {
+  width: 80%;
+}
+#contact .staff ul {
+  display: flex;
+  margin: auto;
+  border: 1px lavender solid;
+  justify-content: space-around;
+}
+#contact .staff ul li {
+  width: 80px;
+  height: 80px;
+  background-color: aliceblue;
+  clip-path: circle(50% at 50% 50%);
+}
+
 footer {
   text-align: center;
+  background-image: url(../images/patter.jpg);
 }/*# sourceMappingURL=style.css.map */

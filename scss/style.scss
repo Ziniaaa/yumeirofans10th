@@ -1,32 +1,41 @@
 @use 'reset';
 @use 'variables' as *;
 @use 'function' as *;
-@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&family=Shippori+Mincho&display=swap');
 
 
 /*共用樣式區開始*/
 html {
-    scroll-behavior: smooth; /* 讓滾動有平滑效果 */
+    scroll-behavior: smooth;
+    /* 讓滾動有平滑效果 */
 }
 
 body {
     background-color: darkcyan;
     background-image: url(../images/patter.jpg);
     color: white;
+    font-family: "Shippori Mincho", serif;
+
 
     h3.title {
         text-align: center;
         font-size: $font-size-xxxl ;
-        font-family: "MonteCarlo", cursive;
+        font-family: "MonteCarlo", cursive,
     }
 
 }
 
 section {
-    height: 50vh;
+    // height: 50vh;
+    // max-width: 1200px;
+    width: 100%;
+    justify-self: center;
+
     border: 1px blue solid;
     padding: 5%;
     justify-items: center;
+    background-image: url(../images/patter.jpg);
+
 
     .preview {
         font-size: $font-size-xl;
@@ -100,6 +109,8 @@ nav {
     top: 0;
     left: 0;
 
+
+
     ul {
         display: flex;
         justify-content: flex-end;
@@ -128,7 +139,6 @@ nav {
 }
 
 #date {
-
     div {
         text-align: center;
 
@@ -139,16 +149,24 @@ nav {
 
     .p_date {
         font-size: $font-size-xxxl;
+        font-family: "MonteCarlo", cursive;
+        letter-spacing: 3px;
+
     }
 
     .p_time {
         font-size: $font-size-xxl;
+        font-family: "MonteCarlo", cursive;
+        letter-spacing: 3px;
+
     }
 
     .p_venue {
         font-size: $font-size-xl;
         display: flex;
         justify-content: center;
+
+
 
         a {
             display: flex;
@@ -166,14 +184,128 @@ nav {
             }
         }
     }
+
+    .small {
+        color: #ccc;
+        font-size: $font-size-m;
+    }
 }
 
 
+#event {
+    .event_wrap {
+        img {
+            height: 300px;
+            width: 400px;
+            object-fit: cover;
+
+        }
+
+        div {
+            display: flex;
+            margin: 80px 0;
+            align-items: center;
+
+            .txt_content {
+                flex-direction: column;
+                margin: 0 80px;
+
+                h4 {
+                    text-align: center;
+                    margin-bottom: 15px;
+                    font-size: $font-size-xl;
+                }
+            }
+        }
+    }
+}
+
+#cast {
+    width: 100%;
+    overflow: hidden;
+    .carousel-container {
+        // width: 80%;
+        // max-width: 1000px;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .carousel {
+        display: flex;
+        width: 100%;
+        position: relative;
+        transition: all 0.3s ease;
+
+        .carousel-item {
+            flex: 0 0 calc(100% / 3);
+            padding: 0 30px;
+            opacity: 0.5;
+
+            .active {
+                opacity: 1;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    .carousel-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 50px;
+
+        .carousel-control {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+
+            &:hover {
+                background-color: #555;
+            }
+        }
+    }
+
+
+    .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 8px;
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+
+        }
+
+        .active {
+            background-color: #333;
+        }
+    }
+
+
+}
 
 #secret {
+    height: 100vh;
     overflow: hidden;
     position: relative;
     padding: 0;
+    background-image: none;
 
     .content {
         padding: 5%;
@@ -187,6 +319,15 @@ nav {
     }
 
     #video-bg {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* 讓影片居中 */
+        z-index: -10;
+        /* 確保影片在最底層 */
+
+
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -197,27 +338,13 @@ nav {
     }
 }
 
-#contact {
-    .staff {
-        width: 80%;
-
-        ul {
-            display: flex;
-            margin: auto;
-            border: 1px lavender solid;
-            justify-content: space-around;
-
-            li {
-                width: 80px;
-                height: 80px;
-                background-color: aliceblue;
-                clip-path: circle(50% at 50% 50%);
-            }
-        }
-    }
-}
 
 #links {
+    p {
+        text-align: center;
+        margin: 15px 0;
+    }
+
     .app {
         justify-items: center;
 
@@ -230,7 +357,8 @@ nav {
 
     .brand {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 80px;
         align-items: center;
 
         .fa-apple {
@@ -255,6 +383,28 @@ nav {
     }
 }
 
+#contact {
+    .staff {
+        width: 80%;
+
+        ul {
+            display: flex;
+            margin: auto;
+            border: 1px lavender solid;
+            justify-content: space-around;
+
+            li {
+                width: 80px;
+                height: 80px;
+                background-color: aliceblue;
+                clip-path: circle(50% at 50% 50%);
+            }
+        }
+    }
+}
+
 footer {
     text-align: center;
+    background-image: url(../images/patter.jpg);
+
 }

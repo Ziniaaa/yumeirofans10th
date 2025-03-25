@@ -162,9 +162,15 @@ section .preview {
   margin-top: 50px;
 }
 
+@media (max-width:640px) {
+  section {
+    padding-bottom: 100px;
+  }
+}
 /*共用樣式區結束*/
 header {
   position: relative;
+  overflow: hidden;
 }
 header .banner_border {
   height: 100vh;
@@ -208,6 +214,16 @@ header #banner .news_carousel {
   background-color: rgb(146, 87, 15);
   align-items: end;
   margin-left: 30px;
+}
+@media (max-width:640px) {
+  header #banner {
+    flex-direction: column-reverse;
+    justify-content: end;
+    align-items: center;
+  }
+  header #banner .news_carousel {
+    margin: 20px 0 0;
+  }
 }
 
 nav {
@@ -297,7 +313,7 @@ nav ul li a:hover {
 }
 #event .event_wrap div .txt_content {
   flex-direction: column;
-  margin: 0 80px;
+  padding: 0 80px;
   line-height: 1.8rem;
 }
 #event .event_wrap div .txt_content h4 {
@@ -313,6 +329,25 @@ nav ul li a:hover {
 }
 #event .event_wrap div .txt_content #openModal:hover {
   filter: brightness(0.8);
+}
+#event .phone {
+  display: none;
+}
+@media (max-width:640px) {
+  #event .event_wrap {
+    display: none;
+  }
+  #event .phone {
+    display: flex;
+    flex-direction: column;
+  }
+  #event .phone div {
+    flex-direction: column;
+    margin: 50px 0;
+  }
+  #event .phone div .txt_content {
+    padding: 0 20px;
+  }
 }
 
 /* 隱藏 Modal（預設不顯示） */
@@ -474,6 +509,28 @@ nav ul li a:hover {
 }
 #cast .slick-next-custom:hover {
   filter: brightness(0.8);
+}
+@media (max-width:640px) {
+  #cast {
+    padding-bottom: 150px;
+  }
+  #cast .carousel .slick-slide {
+    padding: 0;
+  }
+  #cast .carousel .slick-dots {
+    bottom: -40px;
+  }
+  #cast .carousel .slick-prev-custom,
+  #cast .carousel .slick-next-custom {
+    bottom: -100px;
+    width: 30%;
+  }
+  #cast .carousel .slick-prev-custom {
+    left: 10%;
+  }
+  #cast .carousel .slick-next-custom {
+    right: 10%;
+  }
 }
 
 #goods .your-class {

@@ -22,7 +22,6 @@ body {
         font-size: $font-size-xxxl ;
         font-family: "MonteCarlo", cursive,
     }
-
 }
 
 section {
@@ -42,13 +41,19 @@ section {
         font-size: $font-size-xl;
         margin-top: 50px;
     }
-
+    
+}
+@media ($mediaSm) {
+    section{
+        padding-bottom: 100px;
+    }
 }
 
 /*共用樣式區結束*/
 
 header {
     position: relative;
+    overflow: hidden;
 
     .banner_border {
         height: 100vh;
@@ -99,6 +104,17 @@ header {
             background-color: rgb(146, 87, 15);
             align-items: end;
             margin-left: 30px;
+        }
+    }
+    @media ($mediaSm) {
+        // 手機版
+        #banner{
+            flex-direction: column-reverse;
+            justify-content: end;
+            align-items: center;
+            .news_carousel{
+                margin: 20px 0 0;
+            }
         }
     }
 }
@@ -219,7 +235,7 @@ nav {
 
             .txt_content {
                 flex-direction: column;
-                margin: 0 80px;
+                padding: 0 80px;
                 line-height: $font-size-xxl;
 
                 h4 {
@@ -233,13 +249,40 @@ nav {
                     color: coral;
                     border: none;
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         filter: brightness(0.8);
                     }
                 }
             }
         }
+    }
 
+    .phone {
+        display: none;
+    }
+
+    @media ($mediaSm) {
+
+        // 手機版
+        .event_wrap {
+            display: none;
+        }
+
+        .phone {
+            display: flex;
+            flex-direction: column;
+
+            div {
+                flex-direction: column;
+                margin: 50px 0;
+
+                .txt_content {
+                    padding: 0 20px;
+
+                }
+            }
+        }
     }
 }
 
@@ -260,6 +303,7 @@ nav {
     /* 確保在最上層 */
     // display: flex;
     flex-direction: column;
+
     /* Modal 彈窗 */
     .modal {
         display: flex;
@@ -276,7 +320,7 @@ nav {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
         text-align: center;
         position: relative;
-    
+
         iframe {
             position: absolute;
             top: 0;
@@ -286,12 +330,12 @@ nav {
             // max-height: 690px;
             border: none;
         }
-    
+
         /* 關閉按鈕 */
     }
-    
+
     .modal-close {
-    
+
         background: none;
         border: none;
         font-size: 24px;
@@ -300,19 +344,18 @@ nav {
         font-family: "MonteCarlo", cursive, ;
         font-size: $font-size-xxxl;
         letter-spacing: 0.4rem;
-    
+
         &:hover {
             filter: brightness(0.8);
         }
     }
-    
+
 }
+
 /* 顯示 Modal（當 JavaScript 添加 `active` 類別時） */
 .modal-overlay.active {
     display: flex;
 }
-
-
 
 
 #cast {
@@ -396,7 +439,7 @@ nav {
                 button {
                     &:before {
                         color: rgb(218, 206, 139);
-                                            }
+                    }
                 }
             }
 
@@ -453,6 +496,7 @@ nav {
         width: 10%;
         height: auto;
         left: 20%;
+
         /* 靠近左邊 */
         &:hover {
             filter: brightness(0.8);
@@ -463,9 +507,36 @@ nav {
         width: 10%;
         height: auto;
         right: 20%;
+
         /* 靠近右邊 */
         &:hover {
             filter: brightness(0.8);
+        }
+    }
+
+    @media ($mediaSm) {
+        // 手機版
+padding-bottom: 150px;
+        .carousel {
+            .slick-slide {
+                padding: 0;
+            }
+
+            .slick-dots {
+                bottom: -40px;
+            }
+
+            .slick-prev-custom,
+            .slick-next-custom {
+                bottom: -100px;
+                width: 30%;
+            }
+            .slick-prev-custom {
+                left: 10%;
+            }
+            .slick-next-custom {
+                right: 10%;
+            }
         }
     }
 }

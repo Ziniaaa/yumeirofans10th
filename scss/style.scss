@@ -32,7 +32,8 @@ section {
     justify-self: center;
 
     border: 1px blue solid;
-    padding: 5%;
+    padding: 5% 10%;
+
     justify-items: center;
     background-image: url(../images/patter.jpg);
 
@@ -93,10 +94,11 @@ header {
         }
 
         .news_carousel {
-            width: 350px;
+            width: 250px;
             height: 150px;
-            background-color: bisque;
+            background-color: rgb(146, 87, 15);
             align-items: end;
+            margin-left: 30px;
         }
     }
 }
@@ -132,9 +134,14 @@ nav {
 #intro {
     border: 1px lightcoral solid;
 
-    .story {
-        margin-top: $interval-m ;
-        text-align: center;
+    .wrap {
+        max-width: 1200px;
+
+        // padding: 0 10%;
+        .story {
+            margin-top: $interval-m ;
+            text-align: center;
+        }
     }
 }
 
@@ -193,7 +200,11 @@ nav {
 
 
 #event {
+    overflow: hidden;
+
     .event_wrap {
+        max-width: 1200px;
+
         img {
             height: 300px;
             width: 400px;
@@ -209,95 +220,263 @@ nav {
             .txt_content {
                 flex-direction: column;
                 margin: 0 80px;
+                line-height: $font-size-xxl;
 
                 h4 {
                     text-align: center;
-                    margin-bottom: 15px;
+                    margin-bottom: 30px;
                     font-size: $font-size-xl;
+                }
+
+                #openModal {
+                    margin-top: $interval-l;
+                    color: coral;
+                    border: none;
+                    cursor: pointer;
+                    &:hover{
+                        filter: brightness(0.8);
+                    }
                 }
             }
         }
+
     }
 }
 
+/* 隱藏 Modal（預設不顯示） */
+.modal-overlay {
+    display: none;
+    /* 預設隱藏 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.5);
+    /* 背景變暗 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* 確保在最上層 */
+    // display: flex;
+    flex-direction: column;
+    /* Modal 彈窗 */
+    .modal {
+        display: flex;
+        background: black;
+        margin-bottom: 20px;
+        width: 100%;
+        // height: auto;
+        aspect-ratio: 16 / 9;
+        max-width: 60%;
+        // padding-bottom: 56.25%;
+        // /* 16:9 比例 */
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+        text-align: center;
+        position: relative;
+    
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            // max-height: 690px;
+            border: none;
+        }
+    
+        /* 關閉按鈕 */
+    }
+    
+    .modal-close {
+    
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: whitesmoke;
+        font-family: "MonteCarlo", cursive, ;
+        font-size: $font-size-xxxl;
+        letter-spacing: 0.4rem;
+    
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+    
+}
+/* 顯示 Modal（當 JavaScript 添加 `active` 類別時） */
+.modal-overlay.active {
+    display: flex;
+}
+
+
+
+
 #cast {
     width: 100%;
-    overflow: hidden;
+    height: 100%;
+    // overflow: hidden;
+    padding: 5% 0;
+
     .carousel-container {
-        // width: 80%;
-        // max-width: 1000px;
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin-top: 50px;
     }
 
     .carousel {
         display: flex;
+
+        .slick-slide {
+            margin: 20px;
+            transition: transform 0.3s ease;
+            /* 讓切換平滑 */
+            filter: brightness(0.7);
+            /* 預設讓非中間的圖片變暗 */
+        }
+
+        .slick-center {
+            filter: brightness(1) !important;
+            /* 讓中間的圖片變亮 */
+            transform: scale(1.1);
+            /* 讓中間的圖片變大 */
+        }
+    }
+
+    .slick-dots {
+        display: flex !important;
+        justify-content: center;
+        bottom: -100px;
+        position: absolute;
         width: 100%;
-        position: relative;
-        transition: all 0.3s ease;
 
-        .carousel-item {
-            flex: 0 0 calc(100% / 3);
-            padding: 0 30px;
-            opacity: 0.5;
+        li {
+            scale: 3;
+            margin: 0 10px;
 
-            .active {
+            button {
+                &:before {
+                    // display: none;
+                    opacity: 1;
+                    filter: brightness(0.7);
+                    content: "✽";
+                    font-size: 9px;
+                }
+            }
+
+            &:nth-child(1) {
+                button {
+                    &:before {
+                        color: rgb(160, 204, 218);
+
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                button {
+                    &:before {
+                        color: rgb(214, 138, 204);
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                button {
+                    &:before {
+                        color: rgb(45, 65, 177);
+                    }
+                }
+            }
+
+            &:nth-child(4) {
+                button {
+                    &:before {
+                        color: rgb(218, 206, 139);
+                                            }
+                }
+            }
+
+            &:nth-child(5) {
+                button {
+                    &:before {
+                        color: rgb(206, 133, 50);
+                    }
+                }
+            }
+
+            &:nth-child(6) {
+                button {
+                    &:before {
+                        color: rgb(140, 80, 175);
+                    }
+                }
+            }
+
+            &:nth-child(7) {
+                button {
+                    &:before {
+                        color: rgb(72, 134, 72);
+                    }
+                }
+            }
+
+            &.slick-active button:before {
+                // color: red;
                 opacity: 1;
+                scale: 1.2;
+                filter: brightness(1.1);
             }
+        }
 
-            img {
-                width: 100%;
-                height: auto;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
+    }
+
+    /* 自訂箭頭樣式 */
+    .slick-prev-custom,
+    .slick-next-custom {
+        position: absolute;
+        bottom: -100px;
+        /* 與 .slick-dots 對齊 */
+        color: aquamarine;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    /* 調整左右箭頭的位置 */
+    .slick-prev-custom {
+        width: 10%;
+        height: auto;
+        left: 20%;
+        /* 靠近左邊 */
+        &:hover {
+            filter: brightness(0.8);
         }
     }
 
-    .carousel-controls {
+    .slick-next-custom {
+        width: 10%;
+        height: auto;
+        right: 20%;
+        /* 靠近右邊 */
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}
+
+
+#goods {
+
+    .your-class {
         display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        gap: 50px;
 
-        .carousel-control {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
-
-            &:hover {
-                background-color: #555;
-            }
-        }
     }
-
-
-    .carousel-indicators {
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
-        gap: 8px;
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            background-color: #ccc;
-            border-radius: 50%;
-            cursor: pointer;
-
-        }
-
-        .active {
-            background-color: #333;
-        }
-    }
-
-
 }
 
 #secret {

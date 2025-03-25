@@ -9,9 +9,15 @@
     <link rel="icon" href="./favicon.ico">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- slick輪播 -->
+    <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
+    <!-- AOS套件 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- 自訂的CSS，權重必須最大，一定放在最下面 -->
     <link rel="stylesheet" href="./css/style.min.css">
+
 </head>
 
 <body>
@@ -21,7 +27,11 @@
     <header>
         <div class="banner_border"></div>
         <div id="banner">
-            <div class="news_carousel"></div>
+            <div class="news_carousel">
+                <div class="news_prev">123</div>
+                <div class="news_prev">234</div>
+                <div class="news_prev">567</div>
+            </div>
             <div class="event_title">
                 <h1>RE:PHANTOM <br>
                     of the<br>
@@ -41,7 +51,7 @@
             <li><a href="#goods">goods</a></li>
             <li><a href="#secret">secret</a></li>
             <li><a href="#links">links</a></li>
-            <li><a href="#news">contact</a></li>
+            <li><a href="#contact">contact</a></li>
         </ul>
     </nav>
     <!-- 主要內容 -->
@@ -50,22 +60,23 @@
 
         <!-- 活動簡介區 -->
         <section id="intro">
-
-
-            <h3 class="title">Intro </h3>
-            <div class="story">
-                <p class="text">這裡會放活動簡介或是前導故事</p>
-                <p class="text">
-                    兩會理高不拿模果愛響的識候不受，和走成又我出點直足然條過術顧女廠樂汽標小半且不認其制示發業表酒是元大政，士同細們不沒然發訴，許年這，西是是行我他系，臺空臺級健，商常使人人衆著兒，然性親比臺到紙為不是標強他圖，家想苦備士。
-                </p>
-                <p class="text">小最車向候修現由，得立本他立我影布可原，對在會大，國面們部養的開。等好裡水母來做太很事禮童人保月熱結人就眼，輕你商，才指自至日朋友電象次懷中如智一，要化好立理我住身常可洲員。
-                </p>
+            <div class="wrap">
+                <h3 class="title">Intro </h3>
+                <div class="story" data-aos="fade-down">
+                    <p class="text">這裡會放活動簡介或是前導故事</p>
+                    <p class="text">
+                        兩會理高不拿模果愛響的識候不受，和走成又我出點直足然條過術顧女廠樂汽標小半且不認其制示發業表酒是元大政，士同細們不沒然發訴，許年這，西是是行我他系，臺空臺級健，商常使人人衆著兒，然性親比臺到紙為不是標強他圖，家想苦備士。
+                    </p>
+                    <p class="text">
+                        小最車向候修現由，得立本他立我影布可原，對在會大，國面們部養的開。等好裡水母來做太很事禮童人保月熱結人就眼，輕你商，才指自至日朋友電象次懷中如智一，要化好立理我住身常可洲員。
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- 日期資訊區 -->
         <section id="date">
-            <div>
+            <div data-aos="fade-down">
                 <img src="./images/date_frameTop.svg" alt="decoFrame">
                 <p class="p_date">2025.10.26 Sat.</p>
                 <p class="p_time">14:00 ─ 17:00</p>
@@ -84,8 +95,8 @@
             <p class="preview">Coming Soon</p>
             <div class="event_wrap">
                 <div>
-                    <img src="./images/theater_example.jpg" alt="">
-                    <div class="txt_content">
+                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-right">
+                    <div class="txt_content" data-aos="fade-right" data-aos-delay="200">
                         <h4>演劇表演</h4>
                         <p>百老匯傳奇音樂劇 《歌劇魅影》
                             即將華麗上演！沉浸在神秘劇院的愛恨糾葛，感受迷人音樂與震撼視覺效果。幽靈魅影、純真克莉絲汀與浪漫的三角戀情，將在華麗舞台上展開。這場不容錯過的音樂劇盛宴，邀請您一同踏入魅影的世界！
@@ -94,26 +105,36 @@
                 </div>
 
                 <div>
-                    <div class="txt_content">
+                    <div class="txt_content" data-aos="fade-left" data-aos-delay="200">
                         <h4>舞蹈互動</h4>
                         <p>這場《歌劇魅影》的演出不僅帶來動人音樂與震撼戲劇，更特別設計了
                             觀眾互動橋段！在經典旋律響起時，演員將步下舞台，邀請現場觀眾一同共舞，沉浸在華麗劇院的夢幻氛圍中。無論您是舞蹈愛好者還是初次體驗，都能感受這場奇幻愛戀的魅力，與魅影共舞，成為故事的一部分！
                         </p>
+                        <button id="openModal">和演員一同預習社交舞動作</button>
+
                     </div>
-                    <img src="./images/theater_example.jpg" alt="">
+                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-left">
+
                 </div>
 
                 <div>
-                    <img src="./images/theater_example.jpg" alt="">
-                    <div class="txt_content">
+                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-right">
+                    <div class="txt_content" data-aos="fade-right" data-aos-delay="200">
                         <h4>任務活動</h4>
                         <p>這不僅是一場音樂劇，更是一場沉浸式冒險體驗！現場設有多個互動關卡，觀眾可依照劇情線索，尋找劇院內的
                             NPC，完成精心設計的小遊戲。解開魅影留下的謎團、挑戰音樂與舞蹈任務，逐步揭開劇院的秘密！勇敢踏入這場神秘旅程，成為故事的一部分，迎接終極驚喜吧！</p>
+
                     </div>
                 </div>
             </div>
-
         </section>
+        <!-- Dance Modal 外層（包含背景遮罩） -->
+        <div id="modalOverlay" class="modal-overlay">
+            <div class="modal">
+                <iframe  src="https://www.youtube.com/embed/c3JhyjDfZgs?si=f4ALf5R1FPgTHpFq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <button id="closeModal" class="modal-close">Close</button>
+        </div>
 
         <!-- 演員卡司區 -->
         <section id="cast">
@@ -128,21 +149,6 @@
                     <div class="carousel-item"><img src="./images/cast05.jpg" alt="圖片5"></div>
                     <div class="carousel-item"><img src="./images/cast06.jpg" alt="圖片6"></div>
                     <div class="carousel-item"><img src="./images/cast07.jpg" alt="圖片7"></div>
-                </div>
-
-                <div class="carousel-controls">
-                    <button class="carousel-control prev-btn">上一張</button>
-                    <button class="carousel-control next-btn">下一張</button>
-                </div>
-
-                <div class="carousel-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
                 </div>
 
         </section>
@@ -203,7 +209,14 @@
 
 
     <!-- jquery原生碼CDN-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> <!-- slick輪播CDN -->
+    <!-- slick套件 -->
+    <script src="./slick/slick.min.js"></script>
+    <!-- AOS套件 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- 自訂JS -->
     <script src="./js/script.js"></script>
 </body>
 

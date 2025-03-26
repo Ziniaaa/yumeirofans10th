@@ -64,7 +64,7 @@ section {
     width: 100%;
     height: calc(100% of intro + 100% of section2 + 100% of section3);
     // background-color: aqua; 
-    background-image: url(/images/patter.jpg);
+    background-image: url(../images/patter.jpg);
     z-index: -2;
 }
 
@@ -76,7 +76,7 @@ section {
     width: 100%;
     height: calc(100% of section5 + 100% of section6 + 100% of section7);
     // background-color: burlywood;
-    background-image: url(/images/patter.jpg);
+    background-image: url(../images/patter.jpg);
     z-index: -2;
 }
 

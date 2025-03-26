@@ -411,8 +411,9 @@ nav ul li a:hover {
 
 #cast {
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: 5% 0;
+  padding-bottom: 200px;
   /* 自訂箭頭樣式 */
   /* 調整左右箭頭的位置 */
 }
@@ -446,13 +447,18 @@ nav ul li a:hover {
 }
 #cast .slick-dots li {
   scale: 3;
-  margin: 0 10px;
+  margin: 0 15px;
+}
+#cast .slick-dots li button {
+  all: unset;
+  font-size: 0;
 }
 #cast .slick-dots li button:before {
   opacity: 1;
   filter: brightness(0.7);
   content: "✽";
   font-size: 9px;
+  cursor: pointer;
 }
 #cast .slick-dots li:nth-child(1) button:before {
   color: rgb(160, 204, 218);
@@ -483,7 +489,7 @@ nav ul li a:hover {
 #cast .slick-prev-custom,
 #cast .slick-next-custom {
   position: absolute;
-  bottom: -100px;
+  bottom: -110px;
   /* 與 .slick-dots 對齊 */
   color: aquamarine;
   background: transparent;
@@ -491,6 +497,8 @@ nav ul li a:hover {
   font-size: 24px;
   cursor: pointer;
   z-index: 10;
+  transform-origin: center center; /* 以物件正中心為縮放基準 */
+  min-width: 120px;
 }
 #cast .slick-prev-custom {
   width: 10%;

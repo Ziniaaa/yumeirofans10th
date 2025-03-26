@@ -37,7 +37,8 @@ $border-r-m:16px;
 $border-r-l:24px;
 
 //RWD斷點
-$mediaSm:'max-width:640px';
-$mediaSmUp:'min-width:641px'; //非手機版時的樣式(手機版和桌機版完全不同樣式的時候使用)
-$mediaMd:'max-width:1023px';
-$mediaLg:'min-width:1024px';
+$mediaSm:'max-width:640px'; //0-640
+$mediaSmUp:'min-width:641px'; //641-n非手機版時的樣式(手機版和桌機版完全不同樣式的時候使用)
+$mediaIpadAir:'max-width:820'; //n-820
+$mediaMd:'max-width:1023px'; //n-1023
+$mediaLg:'min-width:1024px'; //1024-α

@@ -139,7 +139,6 @@ html {
 
 body {
   background-color: darkcyan;
-  background-image: url(../images/patter.jpg);
   color: white;
   font-family: "Shippori Mincho", serif;
 }
@@ -181,7 +180,6 @@ section .preview {
   width: 100%;
   height: calc(100% of intro + 100% of section2 + 100% of section3);
   background-color: aqua;
-  background-image: url(/images/patter.jpg);
   z-index: -2;
 }
 

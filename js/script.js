@@ -1,3 +1,47 @@
+// 設定背景
+/* JavaScript動態計算高度（如果需要） */
+document.addEventListener('DOMContentLoaded', () => {
+    function updateBackgroundLayer() {
+        const section0 = document.getElementById('navigation');
+        const section1 = document.getElementById('intro');
+        const section2 = document.getElementById('date');
+        const section3 = document.getElementById('event');
+        const section4 = document.getElementById('cast');
+        const section5 = document.getElementById('goods');
+        const section6 = document.getElementById('secret');
+        const section7 = document.getElementById('links');
+        const section8 = document.getElementById('contact');
+
+        
+        const backgroundSection1To5 = document.querySelector('.background-first');
+        const backgroundSection7To8 = document.querySelector('.background-last');
+        
+        // 計算包含margin的高度
+    function getFullHeight(element) {
+        const styles = window.getComputedStyle(element);
+        const marginTop = parseFloat(styles.marginTop);
+        const marginBottom = parseFloat(styles.marginBottom);
+        return element.offsetHeight + marginTop + marginBottom;
+    }
+    
+    // 計算section1到section5的總高度（包含margin）
+    backgroundSection1To5.style.height = 
+        `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3)+ getFullHeight(section4)+ getFullHeight(section5)+getFullHeight(section0)}px`;
+    
+    // 設置第二段背景的位置和高度（包含margin）
+    backgroundSection7To8.style.top = 
+        `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4)+ getFullHeight(section5)+ getFullHeight(section6)+getFullHeight(section0)}px`;
+    backgroundSection7To8.style.height = 
+        `${getFullHeight(section7) + getFullHeight(section8) }px`;
+    }
+    
+    // 初始化和窗口大小變化時更新
+    updateBackgroundLayer();
+    window.addEventListener('resize', updateBackgroundLayer);
+});
+
+
+// cast carousel
 $(document).ready(function () {
     $('.carousel').slick({
 
@@ -84,3 +128,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+

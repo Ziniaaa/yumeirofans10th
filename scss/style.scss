@@ -55,29 +55,30 @@ section {
     left: 0;
     width: 100%;
     z-index: -1;
-}
-/* 第一段背景 (section1 到 section3) */
-.background-first {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% of intro + 100% of section2 + 100% of section3);
-    // background-color: aqua; 
-    background-image: url(../images/patter.jpg);
-    z-index: -2;
-}
 
-/* 第二段背景 (section5 到 section7) */
-.background-last {
-    position: absolute;
-    top: calc(100% of section1 + 100% of section2 + 100% of section3 + 100% of section4);
-    left: 0;
-    width: 100%;
-    height: calc(100% of section5 + 100% of section6 + 100% of section7);
-    // background-color: burlywood;
-    background-image: url(../images/patter.jpg);
-    z-index: -2;
+    /* 第一段背景 (section1 到 section3) */
+    .background-first {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% of intro + 100% of section2 + 100% of section3);
+        // background-color: aqua; 
+        background-image: url(../images/patter.jpg);
+        z-index: -2;
+    }
+    
+    /* 第二段背景 (section5 到 section7) */
+    .background-last {
+        position: absolute;
+        top: calc(100% of section1 + 100% of section2 + 100% of section3 + 100% of section4);
+        left: 0;
+        width: 100%;
+        height: calc(100% of section5 + 100% of section6 + 100% of section7);
+        // background-color: burlywood;
+        background-image: url(../images/patter.jpg);
+        z-index: -2;
+    }
 }
 
 @media ($mediaSm) {
@@ -106,7 +107,7 @@ header {
         background-image: url(../images/MainVisual.png);
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position: center center;
         border: 1px red solid;
         background-attachment: fixed; //視差效果
 

@@ -171,10 +171,10 @@ section .preview {
   left: 0;
   width: 100%;
   z-index: -1;
+  /* 第一段背景 (section1 到 section3) */
+  /* 第二段背景 (section5 到 section7) */
 }
-
-/* 第一段背景 (section1 到 section3) */
-.background-first {
+.background-layer .background-first {
   position: absolute;
   top: 0;
   left: 0;
@@ -183,9 +183,7 @@ section .preview {
   background-image: url(../images/patter.jpg);
   z-index: -2;
 }
-
-/* 第二段背景 (section5 到 section7) */
-.background-last {
+.background-layer .background-last {
   position: absolute;
   top: calc(100% of section1 + 100% of section2 + 100% of section3 + 100% of section4);
   left: 0;
@@ -218,7 +216,7 @@ header #banner {
   background-image: url(../images/MainVisual.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   border: 1px red solid;
   background-attachment: fixed;
   display: flex;

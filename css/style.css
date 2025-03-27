@@ -131,6 +131,58 @@ a {
 
 /*自訂捲軸樣式*/
 /*reset end*/
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
 /*共用樣式區開始*/
 html {
   scroll-behavior: smooth;
@@ -260,33 +312,36 @@ header #banner .news_carousel {
   }
 }
 
-nav {
-  background-color: rgba(35, 32, 61, 0.7);
-  border: 2px rgb(187, 255, 0) solid;
+#navigation {
+  display: flex;
+  flex-direction: column;
   position: sticky;
   z-index: 99;
   top: 0;
   left: 0;
   z-index: 100;
 }
-nav ul {
+#navigation .nav-bar {
+  background-color: rgba(35, 32, 61, 0.7);
+}
+#navigation .nav-bar ul {
   padding: 10px 0;
   display: flex;
   justify-content: center;
 }
-nav ul li {
+#navigation .nav-bar ul li {
   margin: 5px 15px;
 }
-nav ul li a {
+#navigation .nav-bar ul li a {
   font-family: "MonteCarlo";
   font-size: 1.8rem;
   color: whitesmoke;
   position: relative;
 }
-nav ul li a:hover {
+#navigation .nav-bar ul li a:hover {
   color: #DAA857;
 }
-nav ul li a:hover::before {
+#navigation .nav-bar ul li a:hover::before {
   content: "";
   position: absolute;
   width: 80px;
@@ -298,7 +353,7 @@ nav ul li a:hover::before {
   background-size: contain;
   background-repeat: no-repeat;
 }
-nav ul li a:hover::after {
+#navigation .nav-bar ul li a:hover::after {
   content: "";
   position: absolute;
   width: 80px;
@@ -309,6 +364,80 @@ nav ul li a:hover::after {
   background-image: url(../images/nav_btm.svg);
   background-size: contain;
   background-repeat: no-repeat;
+}
+#navigation .hamburger {
+  display: none;
+  align-self: flex-end;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 10px 40px 10px 10px;
+  color: #c9a063;
+  border: none;
+  background-color: transparent;
+  font-family: "Shippori Mincho";
+}
+#navigation .hamburger:before {
+  position: absolute;
+  content: "";
+  background-image: url(../images/hamburger_deco.svg);
+  height: 80px;
+  width: 80px;
+  top: -30%;
+  right: 0;
+}
+@media (max-width:640px) {
+  #navigation {
+    flex-direction: column-reverse;
+    top: 15px;
+    position: fixed;
+    right: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateY(-100%);
+    /* 預設隱藏在上方 */
+    opacity: 0;
+  }
+  #navigation.show {
+    transform: translateY(0);
+    /* 滑入 */
+    opacity: 1;
+  }
+  #navigation #hamburger {
+    display: flex;
+  }
+  #navigation .nav-bar {
+    display: none;
+    width: 150px;
+    align-self: end;
+    background-color: rgba(35, 32, 61, 0.9);
+    position: absolute;
+    top: -40px;
+    justify-content: center;
+    animation: hide 0.35s both;
+  }
+  #navigation .nav-bar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+  #navigation .nav-bar ul li a {
+    font-size: 2rem;
+  }
+  #navigation .nav-bar:after {
+    position: absolute;
+    content: "";
+    background-image: url(../images/hamburger_deco_btm.svg);
+    height: 80px;
+    width: 80px;
+    bottom: 0;
+    left: 0;
+  }
+  #navigation .nav-bar.show {
+    display: flex;
+    animation: show 0.4s both;
+  }
 }
 
 #intro {
@@ -430,21 +559,21 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
   }
-  #event .event_wrap div {
+  #event .event_wrap .event_cnt {
     margin: 50px 0;
     display: flex;
     gap: 24px;
   }
-  #event .event_wrap div img {
+  #event .event_wrap .event_cnt img {
     max-width: 300px;
     height: auto;
     aspect-ratio: 4/3;
   }
-  #event .event_wrap div .txt_content {
+  #event .event_wrap .event_cnt .txt_content {
     padding: 0;
   }
-  #event .event_wrap div .txt_content h4 {
-    margin-bottom: 0;
+  #event .event_wrap .event_cnt .txt_content h4 {
+    margin-top: 20px;
   }
   #event .phone {
     display: none;
@@ -453,20 +582,23 @@ nav ul li a:hover::after {
 @media (max-width:640px) {
   #event .event_wrap {
     display: none;
+    margin: 0;
+    gap: 0;
   }
   #event .phone {
     display: flex;
     flex-direction: column;
   }
-  #event .phone div {
+  #event .phone .event_cnt {
     flex-direction: column;
-    margin: 50px 0;
+    margin: 40px 0;
     gap: 0;
   }
-  #event .phone div .txt_content {
-    padding: 0 20px;
+  #event .phone .event_cnt .txt_content {
+    padding: 0;
+    margin-bottom: 40px;
   }
-  #event .phone div .txt_content h4 {
+  #event .phone .event_cnt .txt_content h4 {
     margin-bottom: 24px;
   }
 }

@@ -163,3 +163,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+// 選單
+$(function () {
+
+    // 漢堡按鈕
+    $('.hamburger').click(function () {
+        $(this).toggleClass('is-active');
+        $('.nav-bar').toggleClass('show');
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("navigation");
+    const introSection = document.getElementById("banner");
+    const navbarBlock = document.getElementById("nav-bar");
+
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (!entries[0].isIntersecting) {
+                navbar.classList.add("show"); // 當 banner 離開視窗頂端時顯示
+            } else {
+                navbar.classList.remove("show"); // 當 banner 還在視窗內時隱藏
+                navbarBlock.classList.remove("show"); // 當 banner 還在視窗內時隱藏
+            }
+        },
+        { threshold: 0 }
+    );
+
+    observer.observe(introSection);
+});

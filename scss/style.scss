@@ -1,6 +1,7 @@
 @use 'reset';
 @use 'variables' as *;
 @use 'function' as *;
+@use 'keyframes';
 @import url('https://fonts.googleapis.com/css2?family=MonteCarlo&family=Shippori+Mincho&display=swap');
 
 
@@ -164,67 +165,160 @@ header {
     }
 }
 
-
-nav {
-    background-color: rgb(35, 32, 61, 0.7);
-    ;
-    border: 2px rgb(187, 255, 0) solid;
+#navigation {
+    display: flex;
+    flex-direction: column;
     position: sticky;
     z-index: 99;
     top: 0;
     left: 0;
     z-index: 100;
 
+    .nav-bar {
+        background-color: rgb(35, 32, 61, 0.7);
+        // border: 2px rgb(187, 255, 0) solid;
 
-    ul {
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
+        ul {
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
 
-        li {
-            margin: 5px 15px;
+            li {
+                margin: 5px 15px;
 
-            a {
-                font-family: "MonteCarlo";
-                font-size: $font-size-xxl;
-                color: whitesmoke;
-                position: relative;
+                a {
+                    font-family: "MonteCarlo";
+                    font-size: $font-size-xxl;
+                    color: whitesmoke;
+                    position: relative;
 
-                &:hover {
-                    color: #DAA857;
+                    &:hover {
+                        color: #DAA857;
 
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        width: 80px;
-                        height: 30px;
-                        bottom: 50%;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background-image: url(../images/nav_top.svg);
-                        background-size: contain;
-                        background-repeat: no-repeat;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 80px;
+                            height: 30px;
+                            bottom: 50%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background-image: url(../images/nav_top.svg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
 
-                    }
+                        }
 
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        width: 80px;
-                        height: 30px;
-                        top: 80%;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background-image: url(../images/nav_btm.svg);
-                        background-size: contain;
-                        background-repeat: no-repeat;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 80px;
+                            height: 30px;
+                            top: 80%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background-image: url(../images/nav_btm.svg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
 
+                        }
                     }
                 }
             }
         }
     }
+
+    .hamburger {
+        display: none;
+        align-self: flex-end;
+        position: relative;
+        cursor: pointer;
+
+        font-size: $font-size-xl;
+        padding: 10px 40px 10px 10px;
+        color: #c9a063;
+        border: none;
+        background-color: transparent;
+        font-family: "Shippori Mincho";
+
+        &:before {
+            position: absolute;
+            content: "";
+            background-image: url(../images/hamburger_deco.svg);
+            height: 80px;
+            width: 80px;
+            top: -30%;
+            right: 0;
+        }
+    }
+
+    @media ($mediaSm) {
+        flex-direction: column-reverse;
+        top: 15px;
+        position: fixed;
+
+        right: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: translateY(-100%);
+        /* 預設隱藏在上方 */
+        opacity: 0;
+
+        &.show {
+            transform: translateY(0);
+            /* 滑入 */
+            opacity: 1;
+        }
+
+        #hamburger {
+            display: flex;
+
+        }
+
+        .nav-bar {
+            display: none;
+            width: 150px;
+            align-self: end;
+            background-color: rgb(35, 32, 61, 0.9);
+            position: absolute;
+            top: -40px;
+            justify-content: center;
+            animation: hide .35s both;
+
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 100px;
+                padding-bottom: 50px;
+
+                li {
+                    a {
+                        font-size: $font-size-xxxl;
+                    }
+                }
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                background-image: url(../images/hamburger_deco_btm.svg);
+                height: 80px;
+                width: 80px;
+                bottom: 0;
+                left: 0;
+            }
+
+            &.show {
+                display: flex;
+                animation: show 0.4s both;
+
+            }
+        }
+
+    }
 }
+
 
 
 #intro {
@@ -377,7 +471,7 @@ nav {
             display: flex;
             flex-direction: column;
 
-            div {
+            .event_cnt {
                 margin: 50px 0;
                 display: flex;
                 gap: 24px;
@@ -392,7 +486,8 @@ nav {
                     padding: 0;
 
                     h4 {
-                        margin-bottom: 0;
+                        margin-top: 20px;
+
                     }
                 }
             }
@@ -408,19 +503,23 @@ nav {
         // 手機版
         .event_wrap {
             display: none;
+            margin: 0;
+            gap: 0;
         }
 
         .phone {
             display: flex;
             flex-direction: column;
 
-            div {
+            .event_cnt {
                 flex-direction: column;
-                margin: 50px 0;
+                margin: 40px 0;
                 gap: 0;
 
                 .txt_content {
-                    padding: 0 20px;
+                    padding: 0;
+                    margin-bottom: 40px;
+
 
                     h4 {
                         margin-bottom: 24px;

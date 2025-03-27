@@ -129,3 +129,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// YT影片modal_手機
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JS 加載成功！");
+
+    const openModalBtn = document.getElementById("openModal2");
+    const closeModalBtn = document.getElementById("closeModal");
+    const modalOverlay = document.getElementById("modalOverlay");
+
+    if (!openModalBtn || !closeModalBtn || !modalOverlay) {
+        console.error("找不到 Modal 相關元素，請檢查 HTML ID！");
+        return;
+    }
+
+    // 打開 Modal
+    openModalBtn.addEventListener("click", function () {
+        console.log("開啟 Modal");
+        modalOverlay.classList.add("active");
+    });
+
+    // 關閉 Modal（點擊關閉按鈕）
+    closeModalBtn.addEventListener("click", function () {
+        console.log("關閉 Modal");
+        modalOverlay.classList.remove("active");
+    });
+
+    // 點擊背景區域關閉 Modal
+    modalOverlay.addEventListener("click", function (event) {
+        if (event.target === modalOverlay) {
+            console.log("點擊背景，關閉 Modal");
+            modalOverlay.classList.remove("active");
+        }
+    });
+});
+

@@ -209,6 +209,7 @@ header .banner_border {
   clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 100%, 100% 100%, 100% 0%);
   background-color: rgb(35, 32, 61);
   position: absolute;
+  z-index: 1;
 }
 header #banner {
   height: 100vh;
@@ -219,6 +220,8 @@ header #banner {
   background-position: center center;
   border: 1px red solid;
   background-attachment: fixed;
+  transform: translateZ(0);
+  /* 強制啟用 GPU 渲染 */
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -258,7 +261,7 @@ header #banner .news_carousel {
 }
 
 nav {
-  background-image: inherit;
+  background-color: rgba(35, 32, 61, 0.7);
   border: 2px rgb(187, 255, 0) solid;
   position: sticky;
   z-index: 99;
@@ -267,15 +270,45 @@ nav {
   z-index: 100;
 }
 nav ul {
+  padding: 10px 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 nav ul li {
-  margin: 5px 10px;
+  margin: 5px 15px;
+}
+nav ul li a {
+  font-family: "MonteCarlo";
+  font-size: 1.8rem;
+  color: whitesmoke;
+  position: relative;
 }
 nav ul li a:hover {
-  color: lightsalmon;
-  text-decoration: underline;
+  color: #DAA857;
+}
+nav ul li a:hover::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(../images/nav_top.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+nav ul li a:hover::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(../images/nav_btm.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #intro {
@@ -289,78 +322,104 @@ nav ul li a:hover {
   text-align: center;
 }
 
-#date div {
+#date .date_wrap {
+  max-width: 500px;
   text-align: center;
 }
-#date div p {
+#date .date_wrap p {
   margin: 10px 0;
 }
-#date .p_date {
+#date .date_wrap .p_wrap {
+  margin: 20px 0;
+}
+#date .date_wrap .p_date {
   font-size: 2rem;
   font-family: "MonteCarlo", cursive;
   letter-spacing: 3px;
 }
-#date .p_time {
+#date .date_wrap .p_time {
   font-size: 1.8rem;
   font-family: "MonteCarlo", cursive;
   letter-spacing: 3px;
 }
-#date .p_venue {
+#date .date_wrap .p_venue {
   font-size: 1.4rem;
   display: flex;
   justify-content: center;
+  letter-spacing: 0.1rem;
 }
-#date .p_venue a {
+#date .date_wrap .p_venue a {
   display: flex;
   align-self: center;
   margin-left: 10px;
   transition: transform 0.1s ease-in-out;
 }
-#date .p_venue a .fa-map-location-dot {
+#date .date_wrap .p_venue a .fa-map-location-dot {
   color: lightgray;
 }
-#date .p_venue a:hover {
+#date .date_wrap .p_venue a:hover {
   transform: scale(0.9);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
-#date .small {
+#date .date_wrap .small {
   color: #ccc;
   font-size: 1rem;
+  letter-spacing: 0;
+}
+@media (max-width:640px) {
+  #date .date_wrap p {
+    margin: 0;
+  }
+  #date .p_wrap {
+    margin: 30px 0;
+  }
+  #date .p_wrap .p_venue {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  #date .p_wrap .p_venue .fa-map-location-dot {
+    font-size: 1.4rem;
+  }
 }
 
 #event {
   overflow: hidden;
 }
 #event .event_wrap {
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
+  gap: 160px;
 }
-#event .event_wrap img {
+#event .event_wrap .event_cnt {
+  display: flex;
+  align-items: center;
+}
+#event .event_wrap .event_cnt img {
   height: 300px;
   width: 400px;
   object-fit: cover;
 }
-#event .event_wrap div {
-  display: flex;
-  margin: 80px 0;
-  align-items: center;
-}
-#event .event_wrap div .txt_content {
+#event .event_wrap .event_cnt .txt_content {
   flex-direction: column;
   padding: 0 80px;
   line-height: 1.8rem;
 }
-#event .event_wrap div .txt_content h4 {
+#event .event_wrap .event_cnt .txt_content h4 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 1.4rem;
 }
-#event .event_wrap div .txt_content #openModal {
+#event .event_wrap .event_cnt .txt_content #openModal,
+#event .event_wrap .event_cnt .txt_content #openModal2 {
   margin-top: 24px;
   color: coral;
   border: none;
   cursor: pointer;
 }
-#event .event_wrap div .txt_content #openModal:hover {
+#event .event_wrap .event_cnt .txt_content #openModal:hover,
+#event .event_wrap .event_cnt .txt_content #openModal2:hover {
   filter: brightness(0.8);
 }
 #event .phone {
@@ -464,6 +523,11 @@ nav ul li a:hover {
 }
 .modal-overlay .modal-close:hover {
   filter: brightness(0.8);
+}
+@media (max-width:640px) {
+  .modal-overlay .modal {
+    max-width: 90%;
+  }
 }
 
 /* 顯示 Modal（當 JavaScript 添加 `active` 類別時） */
@@ -635,8 +699,13 @@ nav ul li a:hover {
   }
 }
 
-#goods .your-class {
+#goods {
   display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+#goods p {
+  text-align: center;
 }
 
 #secret {
@@ -669,12 +738,17 @@ nav ul li a:hover {
   filter: brightness(70%);
 }
 
+#links {
+  display: flex;
+  flex-direction: column;
+}
 #links p {
   text-align: center;
   margin: 15px 0;
 }
 #links .app {
   justify-items: center;
+  margin: auto;
 }
 #links .app img {
   width: 200px;

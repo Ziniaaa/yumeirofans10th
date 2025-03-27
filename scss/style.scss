@@ -20,9 +20,10 @@ body {
     h3.title {
         text-align: center;
         font-size: $font-size-xxxl ;
-        font-family: "MonteCarlo", cursive,
+        font-family: "MonteCarlo", cursive;
     }
-    main{
+
+    main {
         position: relative;
 
     }
@@ -40,13 +41,13 @@ section {
     justify-items: center;
     // background-image: url(../images/patter.jpg);
 
-
     .preview {
         font-size: $font-size-xl;
         margin-top: 50px;
     }
 
 }
+
 // 背景設定
 /* 創建背景層 */
 .background-layer {
@@ -67,7 +68,7 @@ section {
         background-image: url(../images/patter.jpg);
         z-index: -2;
     }
-    
+
     /* 第二段背景 (section5 到 section7) */
     .background-last {
         position: absolute;
@@ -99,6 +100,7 @@ header {
         clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 100%, 100% 100%, 100% 0%);
         background-color: rgb(35, 32, 61);
         position: absolute;
+        z-index: 1;
     }
 
     #banner {
@@ -110,6 +112,8 @@ header {
         background-position: center center;
         border: 1px red solid;
         background-attachment: fixed; //視差效果
+        transform: translateZ(0);
+        /* 強制啟用 GPU 渲染 */
 
         display: flex;
         justify-content: space-between;
@@ -162,26 +166,60 @@ header {
 
 
 nav {
-    background-image: inherit;
+    background-color: rgb(35, 32, 61, 0.7);
+    ;
     border: 2px rgb(187, 255, 0) solid;
     position: sticky;
     z-index: 99;
     top: 0;
     left: 0;
     z-index: 100;
-    ;
+
 
     ul {
+        padding: 10px 0;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
 
         li {
-            margin: 5px 10px;
+            margin: 5px 15px;
 
             a {
+                font-family: "MonteCarlo";
+                font-size: $font-size-xxl;
+                color: whitesmoke;
+                position: relative;
+
                 &:hover {
-                    color: lightsalmon;
-                    text-decoration: underline;
+                    color: #DAA857;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 80px;
+                        height: 30px;
+                        bottom: 50%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-image: url(../images/nav_top.svg);
+                        background-size: contain;
+                        background-repeat: no-repeat;
+
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 80px;
+                        height: 30px;
+                        top: 80%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-image: url(../images/nav_btm.svg);
+                        background-size: contain;
+                        background-repeat: no-repeat;
+
+                    }
                 }
             }
         }
@@ -204,55 +242,83 @@ nav {
 }
 
 #date {
-    div {
+    .date_wrap {
+        max-width: 500px;
         text-align: center;
 
         p {
             margin: 10px 0;
         }
-    }
 
-    .p_date {
-        font-size: $font-size-xxxl;
-        font-family: "MonteCarlo", cursive;
-        letter-spacing: 3px;
+        .p_wrap {
+            margin: 20px 0;
+        }
 
-    }
+        .p_date {
+            font-size: $font-size-xxxl;
+            font-family: "MonteCarlo", cursive;
+            letter-spacing: 3px;
 
-    .p_time {
-        font-size: $font-size-xxl;
-        font-family: "MonteCarlo", cursive;
-        letter-spacing: 3px;
+        }
 
-    }
+        .p_time {
+            font-size: $font-size-xxl;
+            font-family: "MonteCarlo", cursive;
+            letter-spacing: 3px;
 
-    .p_venue {
-        font-size: $font-size-xl;
-        display: flex;
-        justify-content: center;
+        }
 
-
-
-        a {
+        .p_venue {
+            font-size: $font-size-xl;
             display: flex;
-            align-self: center;
-            margin-left: $interval-s;
-            transition: transform 0.1s ease-in-out;
+            justify-content: center;
+            letter-spacing: 0.1rem;
 
-            .fa-map-location-dot {
-                color: lightgray;
-            }
+            a {
+                display: flex;
+                align-self: center;
+                margin-left: $interval-s;
+                transition: transform 0.1s ease-in-out;
 
-            &:hover {
-                transform: scale(0.9);
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+                .fa-map-location-dot {
+                    color: lightgray;
+                }
+
+                &:hover {
+                    transform: scale(0.9);
+                    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+                }
             }
+        }
+
+        .small {
+            color: #ccc;
+            font-size: $font-size-m;
+            letter-spacing: 0;
+
         }
     }
 
-    .small {
-        color: #ccc;
-        font-size: $font-size-m;
+    @media ($mediaSm) {
+        .date_wrap {
+            p {
+                margin: 0;
+            }
+        }
+
+        .p_wrap {
+            margin: 30px 0;
+
+            .p_venue {
+                flex-direction: column;
+                gap: $interval-s;
+                margin-top: 5px;
+
+                .fa-map-location-dot {
+                    font-size: $font-size-xl;
+                }
+            }
+        }
     }
 }
 
@@ -261,19 +327,20 @@ nav {
     overflow: hidden;
 
     .event_wrap {
+        display: flex;
+        flex-direction: column;
         max-width: 1200px;
+        gap: 160px;
 
-        img {
-            height: 300px;
-            width: 400px;
-            object-fit: cover;
-
-        }
-
-        div {
+        .event_cnt {
             display: flex;
-            margin: 80px 0;
             align-items: center;
+
+            img {
+                height: 300px;
+                width: 400px;
+                object-fit: cover;
+            }
 
             .txt_content {
                 flex-direction: column;
@@ -286,7 +353,8 @@ nav {
                     font-size: $font-size-xl;
                 }
 
-                #openModal {
+                #openModal,
+                #openModal2 {
                     margin-top: $interval-l;
                     color: coral;
                     border: none;
@@ -427,6 +495,12 @@ nav {
         }
     }
 
+    @media ($mediaSm) {
+        .modal {
+            max-width: 90%;
+        }
+    }
+
 }
 
 /* 顯示 Modal（當 JavaScript 添加 `active` 類別時） */
@@ -461,6 +535,7 @@ nav {
             filter: brightness(0.7);
             /* 預設讓非中間的圖片變暗 */
             transform: scale(0.9);
+
         }
 
         .slick-center {
@@ -675,11 +750,14 @@ nav {
 
 
 #goods {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
 
-    .your-class {
-        display: flex;
-
+    p {
+        text-align: center;
     }
+
 }
 
 #secret {
@@ -722,6 +800,9 @@ nav {
 
 
 #links {
+    display: flex;
+    flex-direction: column;
+
     p {
         text-align: center;
         margin: 15px 0;
@@ -729,6 +810,7 @@ nav {
 
     .app {
         justify-items: center;
+        margin: auto;
 
         img {
             width: 200px;

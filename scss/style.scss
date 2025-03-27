@@ -36,7 +36,7 @@ section {
     width: 100%;
     justify-self: center;
 
-    border: 1px blue solid;
+    // border: 1px blue solid;
     padding: 5% 10%;
 
     justify-items: center;
@@ -111,7 +111,6 @@ header {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
-        border: 1px red solid;
         background-attachment: fixed; //視差效果
         transform: translateZ(0);
         /* 強制啟用 GPU 渲染 */
@@ -144,9 +143,19 @@ header {
         .news_carousel {
             width: 250px;
             height: 150px;
-            background-color: rgb(146, 87, 15);
             align-items: end;
             margin-left: 30px;
+
+            .news_prev {
+                background-image: url(../images/news_bg.svg);
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 250px;
+                height: 150px;
+                margin: 0 20px;
+                text-align: center;
+                line-height: 150px;
+            }
         }
     }
 
@@ -322,16 +331,24 @@ header {
 
 
 #intro {
-    border: 1px lightcoral solid;
 
     .wrap {
         max-width: 1200px;
 
-        // padding: 0 10%;
+        .flaot_title {
+            text-align: center;
+            padding: 120px 0 200px;
+        }
+
         .story {
             margin-top: $interval-m ;
             text-align: center;
         }
+    }
+
+    @media ($mediaSm) {
+        padding-top: 140px;
+        padding-bottom: 50px;
     }
 }
 
@@ -424,21 +441,32 @@ header {
         display: flex;
         flex-direction: column;
         max-width: 1200px;
-        gap: 160px;
+        gap: 120px;
 
         .event_cnt {
             display: flex;
             align-items: center;
+            gap: 80px;
 
-            img {
-                height: 300px;
-                width: 400px;
-                object-fit: cover;
+            figure {
+                max-width: 500px;
+                display: flex;
+                aspect-ratio: 4/3;
+                flex: 1;
+
+                img {
+                    object-fit: cover;
+                    // height: 100%;
+                    // width:100%;
+
+                }
             }
 
             .txt_content {
+                flex: 1;
+
                 flex-direction: column;
-                padding: 0 80px;
+                // padding: 0 80px;
                 line-height: $font-size-xxl;
 
                 h4 {
@@ -625,6 +653,9 @@ header {
     .carousel {
         display: flex;
 
+        .carousel-item {
+            cursor: pointer;
+        }
 
         .slick-slide {
 
@@ -642,6 +673,7 @@ header {
             /* 讓中間的圖片變亮 */
             transform: scale(1.1);
             /* 讓中間的圖片變大 */
+            cursor: default;
         }
     }
 
@@ -799,16 +831,16 @@ header {
 
     @media ($mediaSm) {
         // 手機版
-        padding-bottom: 150px;
+        padding-bottom: 180px;
 
         .carousel {
 
             .slick-track {
-                padding: 30px 0;
+                padding: 40px 0;
             }
 
             .slick-slide {
-                margin: 20px;
+                margin: 30px;
                 transition: transform 0.3s ease;
                 /* 讓切換平滑 */
                 filter: brightness(0.7);
@@ -825,12 +857,12 @@ header {
             }
 
             .slick-dots {
-                bottom: -40px;
+                bottom: -60px;
             }
 
             .slick-prev-custom,
             .slick-next-custom {
-                bottom: -100px;
+                bottom: -120px;
                 width: 30%;
             }
 
@@ -899,48 +931,54 @@ header {
 
 
 #links {
-    display: flex;
-    flex-direction: column;
 
-    p {
-        text-align: center;
-        margin: 15px 0;
-    }
 
-    .app {
-        justify-items: center;
-        margin: auto;
-
-        img {
-            width: 200px;
-            height: 200px;
-            border-radius: 40px;
-        }
-    }
-
-    .brand {
+    .content {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        gap: 80px;
         align-items: center;
 
-        .fa-apple {
-            color: white;
-            font-size: 90px;
-            transition: transform 0.1s ease-in-out;
+        p {
+            text-align: center;
+            margin: 15px 0;
+        }
 
-            &:hover {
-                transform: scale(0.92);
+        .app {
+            width: 200px;
+            height: 200px;
+
+            img {
+
+                border-radius: 40px;
             }
         }
 
-        .fa-google-play {
-            color: white;
-            font-size: 75px;
-            transition: transform 0.1s ease-in-out;
 
-            &:hover {
-                transform: scale(0.92);
+        .brand {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            align-items: center;
+
+            .fa-apple {
+                color: white;
+                font-size: 90px;
+                transition: transform 0.1s ease-in-out;
+
+                &:hover {
+                    transform: scale(0.92);
+                }
+            }
+
+            .fa-google-play {
+                color: white;
+                font-size: 75px;
+                transition: transform 0.1s ease-in-out;
+
+                &:hover {
+                    transform: scale(0.92);
+                }
             }
         }
     }
@@ -949,6 +987,8 @@ header {
 #contact {
     .staff {
         width: 80%;
+        text-align: center;
+        padding-bottom: 120px;
 
         ul {
             display: flex;
@@ -961,6 +1001,9 @@ header {
                 height: 80px;
                 background-color: aliceblue;
                 clip-path: circle(50% at 50% 50%);
+                color: navy;
+                text-align: center;
+                line-height: 80px;
             }
         }
     }
@@ -969,5 +1012,5 @@ header {
 footer {
     text-align: center;
     background-image: url(../images/patter.jpg);
-
+    padding-bottom: 40px;
 }

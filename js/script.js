@@ -12,36 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const section7 = document.getElementById('links');
         const section8 = document.getElementById('contact');
 
-        
+
         const backgroundSection1To5 = document.querySelector('.background-first');
         const backgroundSection7To8 = document.querySelector('.background-last');
-        
+
         // 計算包含margin的高度
-    function getFullHeight(element) {
-        const styles = window.getComputedStyle(element);
-        const marginTop = parseFloat(styles.marginTop);
-        const marginBottom = parseFloat(styles.marginBottom);
-        return element.offsetHeight + marginTop + marginBottom;
+        function getFullHeight(element) {
+            const styles = window.getComputedStyle(element);
+            const marginTop = parseFloat(styles.marginTop);
+            const marginBottom = parseFloat(styles.marginBottom);
+            return element.offsetHeight + marginTop + marginBottom;
+        }
+
+        // 計算section1到section5的總高度（包含margin）
+        backgroundSection1To5.style.height =
+            `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section0)}px`;
+
+        // 設置第二段背景的位置和高度（包含margin）
+        backgroundSection7To8.style.top =
+            `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6) + getFullHeight(section0)}px`;
+        backgroundSection7To8.style.height =
+            `${getFullHeight(section7) + getFullHeight(section8)}px`;
     }
-    
-    // 計算section1到section5的總高度（包含margin）
-    backgroundSection1To5.style.height = 
-        `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3)+ getFullHeight(section4)+ getFullHeight(section5)+getFullHeight(section0)}px`;
-    
-    // 設置第二段背景的位置和高度（包含margin）
-    backgroundSection7To8.style.top = 
-        `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4)+ getFullHeight(section5)+ getFullHeight(section6)+getFullHeight(section0)}px`;
-    backgroundSection7To8.style.height = 
-        `${getFullHeight(section7) + getFullHeight(section8) }px`;
-    }
-    
+
     // 初始化和窗口大小變化時更新
     updateBackgroundLayer();
     window.addEventListener('resize', updateBackgroundLayer);
 });
 
 
-// cast carousel
+// slick carousel
 $(document).ready(function () {
     $('.carousel').slick({
 
@@ -53,6 +53,7 @@ $(document).ready(function () {
         arrows: true,
         prevArrow: '<button class="slick-prev-custom"><img src="./images/castArrow_left.svg" ></button>',
         nextArrow: '<button class="slick-next-custom"><img src="./images/castArrow_right.svg" ></button>',
+        focusOnSelect: true, // 讓點擊的圖片自動置中
 
         responsive: [
             {
@@ -78,14 +79,18 @@ $(document).ready(function () {
                 settings: {
                     // arrows: false,
                     centerMode: true,
-                    centerPadding: '0px',
-                    slidesToShow: 3
+                    centerPadding: '80px',
+                    slidesToShow: 1
                 }
             }
         ]
     });
 
-    $('.news_carousel').slick();
+    $('.news_carousel').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+    }
+    );
 });
 
 AOS.init({

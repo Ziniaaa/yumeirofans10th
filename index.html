@@ -45,14 +45,14 @@
             </div>
         </div>
     </header>
-    <!-- 頁首選單 -->
-
+    
     <!-- 主要內容 -->
     <main>
         <div class="background-layer">
             <div class="background-first"></div>
             <div class="background-last"></div>
         </div>
+        <!-- 選單 -->
         <div class="navigation" id="navigation">
             <nav class="nav-bar" id="nav-bar">
                 <ul>
@@ -71,10 +71,11 @@
             </button>
         </div>
         <!-- 活動簡介區 -->
-        <section id="intro">
+        <section id="intro" data-aos="fade-up">
             <div class="wrap">
+                <h4 class="flaot_title" data-aos="zoom-out-up" data-aos-delay="300">我是一句很有深意的話</h4>
                 <h3 class="title">Intro </h3>
-                <div class="story" data-aos="fade-down">
+                <div class="story" data-aos="fade-up">
                     <p class="text">這裡會放活動簡介或是前導故事</p>
                     <p class="text">
                         兩會理高不拿模果愛響的識候不受，和走成又我出點直足然條過術顧女廠樂汽標小半且不認其制示發業表酒是元大政，士同細們不沒然發訴，許年這，西是是行我他系，臺空臺級健，商常使人人衆著兒，然性親比臺到紙為不是標強他圖，家想苦備士。
@@ -87,8 +88,8 @@
         </section>
 
         <!-- 日期資訊區 -->
-        <section id="date">
-            <div class="date_wrap" data-aos="fade-down">
+        <section id="date" data-aos="fade-up">
+            <div class="date_wrap" data-aos="fade-up">
                 <img src="./images/date_frameTop.svg" alt="decoFrame">
                 <div class="p_wrap">
                     <p class="p_date">2025.10.25 Sat.</p>
@@ -104,12 +105,14 @@
         </section>
 
         <!-- 活動內容區 -->
-        <section id="event">
+        <section id="event" data-aos="fade-up">
             <h3 class="title">Event </h3>
             <!-- <p class="preview">Coming Soon</p> -->
             <div class="event_wrap">
                 <div class="event_cnt">
-                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-right">
+                    <figure>
+                        <img src="./images/theater_example.jpg" alt="" data-aos="fade-right">
+                    </figure>
                     <div class="txt_content" data-aos="fade-right" data-aos-delay="200">
                         <h4>演劇表演</h4>
                         <p>百老匯傳奇音樂劇 《歌劇魅影》
@@ -127,12 +130,16 @@
                         <button id="openModal">和演員一同預習社交舞動作</button>
 
                     </div>
-                    <img src="./images/waltz_example.jpg" alt="" data-aos="fade-left">
+                    <figure>
+                        <img src="./images/waltz_example.jpg" alt="" data-aos="fade-left">
+                    </figure>
 
                 </div>
 
                 <div class="event_cnt">
-                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-right">
+                    <figure>
+                        <img src="./images/theater_example.jpg" alt="" data-aos="fade-right">
+                    </figure>
                     <div class="txt_content" data-aos="fade-right" data-aos-delay="200">
                         <h4>任務活動</h4>
                         <p>這不僅是一場音樂劇，更是一場沉浸式冒險體驗！現場設有多個互動關卡，觀眾可依照劇情線索，尋找劇院內的
@@ -187,9 +194,9 @@
         </div>
 
         <!-- 演員卡司區 -->
-        <section id="cast">
+        <section id="cast" data-aos="fade-up">
             <h3 class="title">Cast </h3>
-            <div class="carousel-container">
+            <div class="carousel-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="carousel">
                     <!-- 這裡使用了佔位圖片，請替換成您的實際圖片 -->
                     <div class="carousel-item"><img src="./images/cast01.jpg" alt="圖片1"></div>
@@ -205,16 +212,16 @@
 
         <!-- 商品展示區 -->
         <section id="goods">
-            <h3 class="title">Goods </h3>
-            <p class="preview">Coming Soon</p>
+            <h3 class="title" data-aos="fade-up">Goods </h3>
+            <p class="preview" data-aos="fade-up" data-aos-delay="200">Coming Soon</p>
 
         </section>
 
         <!-- 秘密內容區 -->
-        <section id="secret">
-            <div class="content">
-                <h3 class="title">Secret </h3>
-                <p class="preview">Coming Soon</p>
+        <section id="secret" >
+            <div class="content" >
+                <h3 class="title" data-aos="fade-up">Secret </h3>
+                <p class="preview" data-aos="fade-up" data-aos-delay="200">Coming Soon</p>
             </div>
             <video id="video-bg" autoplay playsinline muted loop>
                 <source src="./images/fireFilm.mp4" type="video/mp4">
@@ -222,12 +229,12 @@
         </section>
 
         <!-- app連結 -->
-        <section id="links">
-            <h3 class="title">Links</h3>
-            <div class="content">
+        <section id="links" >
+            <h3 class="title" data-aos="fade-up">Links</h3>
+            <div class="content" data-aos="fade-up" data-aos-delay="200">
                 <p>夢色キャスト　TAKE A CURTAIN CALL</p>
-                <a href="https://ycast.sega-net.com/" target="_blank" rel="noopener noreferrer">
-                    <figure class="app"><img src="./images/yumeiro_app.jpg" alt=""></figure>
+                <a class="app" href="https://ycast.sega-net.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/yumeiro_app.jpg" alt="">
                 </a>
                 <p>在 App Store 或 Google Play 購買</p>
                 <div class="brand">
@@ -241,12 +248,13 @@
 
         <!-- 聯繫我們區 -->
         <section id="contact">
-            <h3 class="title">Contact</h3>
-            <div class="staff">
+            <h3 class="title" data-aos="fade-up">Contact</h3>
+            <div class="staff" data-aos="fade-up" data-aos-delay="200">
+                <p>主辦：夢色好夥伴</p>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>噗浪</li>
+                    <li>E-mail</li>
+                    <li>Youtube</li>
                 </ul>
             </div>
 

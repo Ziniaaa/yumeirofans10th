@@ -207,7 +207,6 @@ body main {
 section {
   width: 100%;
   justify-self: center;
-  border: 1px blue solid;
   padding: 5% 10%;
   justify-items: center;
 }
@@ -270,7 +269,6 @@ header #banner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  border: 1px red solid;
   background-attachment: fixed;
   transform: translateZ(0);
   /* 強制啟用 GPU 渲染 */
@@ -297,9 +295,18 @@ header #banner .event_title h3 {
 header #banner .news_carousel {
   width: 250px;
   height: 150px;
-  background-color: rgb(146, 87, 15);
   align-items: end;
   margin-left: 30px;
+}
+header #banner .news_carousel .news_prev {
+  background-image: url(../images/news_bg.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 250px;
+  height: 150px;
+  margin: 0 20px;
+  text-align: center;
+  line-height: 150px;
 }
 @media (max-width:640px) {
   header #banner {
@@ -440,15 +447,22 @@ header #banner .news_carousel {
   }
 }
 
-#intro {
-  border: 1px lightcoral solid;
-}
 #intro .wrap {
   max-width: 1200px;
+}
+#intro .wrap .flaot_title {
+  text-align: center;
+  padding: 120px 0 200px;
 }
 #intro .wrap .story {
   margin-top: 16px;
   text-align: center;
+}
+@media (max-width:640px) {
+  #intro {
+    padding-top: 140px;
+    padding-bottom: 50px;
+  }
 }
 
 #date .date_wrap {
@@ -519,20 +533,25 @@ header #banner .news_carousel {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
-  gap: 160px;
+  gap: 120px;
 }
 #event .event_wrap .event_cnt {
   display: flex;
   align-items: center;
+  gap: 80px;
 }
-#event .event_wrap .event_cnt img {
-  height: 300px;
-  width: 400px;
+#event .event_wrap .event_cnt figure {
+  max-width: 500px;
+  display: flex;
+  aspect-ratio: 4/3;
+  flex: 1;
+}
+#event .event_wrap .event_cnt figure img {
   object-fit: cover;
 }
 #event .event_wrap .event_cnt .txt_content {
+  flex: 1;
   flex-direction: column;
-  padding: 0 80px;
   line-height: 1.8rem;
 }
 #event .event_wrap .event_cnt .txt_content h4 {
@@ -684,6 +703,9 @@ header #banner .news_carousel {
 #cast .carousel {
   display: flex;
 }
+#cast .carousel .carousel-item {
+  cursor: pointer;
+}
 #cast .carousel .slick-slide {
   margin: 20px;
   transition: transform 0.3s ease;
@@ -697,6 +719,7 @@ header #banner .news_carousel {
   /* 讓中間的圖片變亮 */
   transform: scale(1.1);
   /* 讓中間的圖片變大 */
+  cursor: default;
 }
 #cast .slick-dots {
   display: flex !important;
@@ -796,13 +819,13 @@ header #banner .news_carousel {
 }
 @media (max-width:640px) {
   #cast {
-    padding-bottom: 150px;
+    padding-bottom: 180px;
   }
   #cast .carousel .slick-track {
-    padding: 30px 0;
+    padding: 40px 0;
   }
   #cast .carousel .slick-slide {
-    margin: 20px;
+    margin: 30px;
     transition: transform 0.3s ease;
     /* 讓切換平滑 */
     filter: brightness(0.7);
@@ -816,11 +839,11 @@ header #banner .news_carousel {
     /* 讓中間的圖片變大 */
   }
   #cast .carousel .slick-dots {
-    bottom: -40px;
+    bottom: -60px;
   }
   #cast .carousel .slick-prev-custom,
   #cast .carousel .slick-next-custom {
-    bottom: -100px;
+    bottom: -120px;
     width: 30%;
   }
   #cast .carousel .slick-prev-custom {
@@ -870,48 +893,50 @@ header #banner .news_carousel {
   filter: brightness(70%);
 }
 
-#links {
+#links .content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#links p {
+#links .content p {
   text-align: center;
   margin: 15px 0;
 }
-#links .app {
-  justify-items: center;
-  margin: auto;
-}
-#links .app img {
+#links .content .app {
   width: 200px;
   height: 200px;
+}
+#links .content .app img {
   border-radius: 40px;
 }
-#links .brand {
+#links .content .brand {
   display: flex;
   justify-content: center;
   gap: 80px;
   align-items: center;
 }
-#links .brand .fa-apple {
+#links .content .brand .fa-apple {
   color: white;
   font-size: 90px;
   transition: transform 0.1s ease-in-out;
 }
-#links .brand .fa-apple:hover {
+#links .content .brand .fa-apple:hover {
   transform: scale(0.92);
 }
-#links .brand .fa-google-play {
+#links .content .brand .fa-google-play {
   color: white;
   font-size: 75px;
   transition: transform 0.1s ease-in-out;
 }
-#links .brand .fa-google-play:hover {
+#links .content .brand .fa-google-play:hover {
   transform: scale(0.92);
 }
 
 #contact .staff {
   width: 80%;
+  text-align: center;
+  padding-bottom: 120px;
 }
 #contact .staff ul {
   display: flex;
@@ -924,9 +949,13 @@ header #banner .news_carousel {
   height: 80px;
   background-color: aliceblue;
   clip-path: circle(50% at 50% 50%);
+  color: navy;
+  text-align: center;
+  line-height: 80px;
 }
 
 footer {
   text-align: center;
   background-image: url(../images/patter.jpg);
+  padding-bottom: 40px;
 }/*# sourceMappingURL=style.css.map */

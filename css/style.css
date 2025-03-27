@@ -183,6 +183,17 @@ a {
     display: none;
   }
 }
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 /*共用樣式區開始*/
 html {
   scroll-behavior: smooth;
@@ -453,6 +464,20 @@ header #banner .news_carousel .news_prev {
 #intro .wrap .flaot_title {
   text-align: center;
   padding: 120px 0 200px;
+  font-size: 1.4rem;
+  line-height: 3rem;
+}
+#intro .wrap .flaot_title h4 {
+  line-height: 2.3rem;
+  font-weight: medium;
+  animation: float 4s ease-in-out infinite;
+}
+#intro .wrap .flaot_title h4:nth-child(3) {
+  font-size: 1.8rem;
+  color: rgb(170, 74, 74);
+  padding-top: 20px;
+  font-weight: bold;
+  animation-delay: 0.2s;
 }
 #intro .wrap .story {
   margin-top: 16px;
@@ -706,6 +731,12 @@ header #banner .news_carousel .news_prev {
 #cast .carousel .carousel-item {
   cursor: pointer;
 }
+#cast .carousel .carousel-item img {
+  filter: drop-shadow(0 0 0.6rem rgb(19, 19, 19));
+}
+#cast .carousel .slick-track {
+  padding: 20px 0;
+}
 #cast .carousel .slick-slide {
   margin: 20px;
   transition: transform 0.3s ease;
@@ -715,7 +746,7 @@ header #banner .news_carousel .news_prev {
   transform: scale(0.9);
 }
 #cast .carousel .slick-center {
-  filter: brightness(1) !important;
+  filter: brightness(1) drop-shadow(0 0 0.25rem rgb(222, 223, 157)) !important;
   /* 讓中間的圖片變亮 */
   transform: scale(1.1);
   /* 讓中間的圖片變大 */
@@ -739,8 +770,8 @@ header #banner .news_carousel .news_prev {
 #cast .slick-dots li button:before {
   opacity: 1;
   filter: brightness(0.7);
-  content: "✽";
-  font-size: 9px;
+  content: "❖";
+  font-size: 10px;
   cursor: pointer;
 }
 #cast .slick-dots li:nth-child(1) button:before {

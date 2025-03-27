@@ -338,6 +338,23 @@ header {
         .flaot_title {
             text-align: center;
             padding: 120px 0 200px;
+            font-size: $font-size-xl;
+            line-height: 3rem;
+            
+            h4 {
+                line-height: 2.3rem;
+                font-weight: medium;
+                animation: float 4s  ease-in-out infinite;
+
+                &:nth-child(3) {
+                    font-size: $font-size-xxl;
+                    color: rgb(170, 74, 74);
+                    padding-top: 20px;
+                    font-weight: bold;
+                    animation-delay: .2s;
+
+                }
+            }
         }
 
         .story {
@@ -655,6 +672,14 @@ header {
 
         .carousel-item {
             cursor: pointer;
+
+            img {
+                filter: drop-shadow(0 0 .6rem rgb(19, 19, 19));
+            }
+        }
+
+        .slick-track {
+            padding: 20px 0;
         }
 
         .slick-slide {
@@ -662,18 +687,19 @@ header {
             margin: 20px;
             transition: transform 0.3s ease;
             /* 讓切換平滑 */
-            filter: brightness(0.7);
+            filter: brightness(0.7), ;
             /* 預設讓非中間的圖片變暗 */
             transform: scale(0.9);
 
         }
 
         .slick-center {
-            filter: brightness(1) !important;
+            filter: brightness(1) drop-shadow(0 0 .25rem rgb(222, 223, 157)) !important;
             /* 讓中間的圖片變亮 */
             transform: scale(1.1);
             /* 讓中間的圖片變大 */
             cursor: default;
+
         }
     }
 
@@ -696,8 +722,8 @@ header {
                     // display: none;
                     opacity: 1;
                     filter: brightness(0.7);
-                    content: "✽";
-                    font-size: 9px;
+                    content: "❖";
+                    font-size: 10px;
                     cursor: pointer;
                 }
             }

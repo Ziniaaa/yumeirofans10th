@@ -179,6 +179,8 @@ header {
             flex-direction: column-reverse;
             justify-content: end;
             align-items: center;
+            transform: translateZ(0);
+        /* 強制啟用 GPU 渲染 */
 
             .news_carousel {
                 margin: 20px 0 0;

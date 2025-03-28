@@ -389,6 +389,21 @@ header #banner .chandelier {
   header #banner .news_carousel {
     margin: 20px 0 0;
   }
+  header #banner .event_title {
+    margin: 0;
+  }
+  header #banner .event_title h1 {
+    font-size: 1.4rem;
+  }
+  header #banner .event_title h2 {
+    font-size: 1rem;
+  }
+  header #banner .event_title h3 {
+    font-size: 1rem;
+  }
+  header #banner .chandelier {
+    scale: 0.8;
+  }
 }
 
 #navigation {

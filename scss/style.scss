@@ -183,10 +183,30 @@ header {
             justify-content: end;
             align-items: center;
             transform: translateZ(0);
-        /* 強制啟用 GPU 渲染 */
+            /* 強制啟用 GPU 渲染 */
 
             .news_carousel {
                 margin: 20px 0 0;
+            }
+
+            .event_title {
+                margin: 0;
+
+                h1 {
+                    font-size: $font-size-xl;
+                }
+
+                h2 {
+                    font-size: $font-size-m;
+                }
+
+                h3 {
+                    font-size: $font-size-m;
+                }
+            }
+
+            .chandelier {
+                scale: 0.8;
             }
         }
     }
@@ -1087,7 +1107,7 @@ footer {
         bottom: 30px;
         z-index: 666;
 
-     
+
         &::before {
             content: '';
             background-image: url(../images/back-to-top.svg);
@@ -1103,6 +1123,7 @@ footer {
             transition: none;
 
         }
+
         &:hover {
             // transform: scale(1.2);
             font-size: 26px;
@@ -1110,7 +1131,7 @@ footer {
 
 
             &::before {
-            animation-play-state: paused;
+                animation-play-state: paused;
             }
         }
     }

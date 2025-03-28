@@ -219,19 +219,23 @@ element.addEventListener("click", () => {
 // 至頂按鈕
 $(document).ready(function () {
     $('#gotop').click(function () {
-        smoothScrollToTop(25); // 調整數字來加快滾動速度
+        //捲動到座標0位置
+        $('html,body').animate({ scrollTop: 0 }, 800)
     });
+    // $('#gotop').click(function () {
+    //     smoothScrollToTop(25); // 調整數字來加快滾動速度
+    // });
 
-    function smoothScrollToTop(speedMultiplier) {
-        let scrollStep = -window.scrollY / (10 / speedMultiplier); // 提高除數來加快滾動
-        function scrollAnimation() {
-            if (window.scrollY > 0) {
-                window.scrollBy(0, scrollStep);
-                requestAnimationFrame(scrollAnimation);
-            }
-        }
-        requestAnimationFrame(scrollAnimation)
-    };
+    // function smoothScrollToTop(speedMultiplier) {
+    //     let scrollStep = -window.scrollY / (10 / speedMultiplier); // 提高除數來加快滾動
+    //     function scrollAnimation() {
+    //         if (window.scrollY > 0) {
+    //             window.scrollBy(0, scrollStep);
+    //             requestAnimationFrame(scrollAnimation);
+    //         }
+    //     }
+    //     requestAnimationFrame(scrollAnimation)
+    // };
 
     // 顯示/隱藏至頂按鈕
     $(window).scroll(function () {

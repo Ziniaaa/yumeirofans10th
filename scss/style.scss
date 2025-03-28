@@ -41,7 +41,7 @@ section {
     align-items: center;
     // justify-self: center;
 
-    border: 1px blue solid;
+    // border: 1px blue solid;
     padding: 5% 10%;
 
     justify-items: center;
@@ -1133,6 +1133,17 @@ footer {
             &::before {
                 animation-play-state: paused;
             }
+        }
+    }
+    @media ($mediaSm) {
+        #gotop{
+            &::before {
+                
+                &:hover {
+                    animation: none;
+                }
+            }
+
         }
     }
 }

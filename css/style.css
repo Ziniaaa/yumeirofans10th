@@ -194,6 +194,53 @@ a {
     transform: translateY(0);
   }
 }
+@keyframes drop {
+  0% {
+    transform: translateY(0px) rotate(15deg);
+  }
+  8% {
+    transform: translateY(680px) rotate(-1deg);
+  }
+  15% {
+    transform: translateY(660px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(675px) rotate(-1deg);
+  }
+  40% {
+    transform: translateY(675px);
+  }
+  100% {
+    transform: translateY(500px) rotate(-2deg);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: translateY(500px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(500px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(500px) rotate(-2deg);
+  }
+}
+@keyframes goback {
+  0% {
+    transform: translateY(500px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /*共用樣式區開始*/
 html {
   scroll-behavior: smooth;
@@ -269,7 +316,7 @@ header .banner_border {
   height: 100vh;
   width: 100%;
   clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 100%, 100% 100%, 100% 0%);
-  background-color: rgb(35, 32, 61);
+  background-color: rgb(199, 121, 33);
   position: absolute;
   z-index: 1;
 }
@@ -281,18 +328,18 @@ header #banner {
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  transform: translateZ(0);
   /* 強制啟用 GPU 渲染 */
   display: flex;
   justify-content: space-between;
   align-items: end;
-  padding: 5%;
+  padding: 20px 5%;
 }
 header #banner .event_title {
   display: block;
   justify-self: end;
   border: 1px solid lightgrey;
   text-align: center;
+  margin-right: 10%;
 }
 header #banner .event_title h1 {
   font-size: 2rem;
@@ -318,6 +365,15 @@ header #banner .news_carousel .news_prev {
   margin: 0 20px;
   text-align: center;
   line-height: 150px;
+}
+header #banner .chandelier {
+  height: 700px;
+  width: auto;
+  position: absolute;
+  top: -750px;
+  right: 8%;
+  animation: drop 5s ease-out forwards 3s, swing 5s infinite ease-out 8s;
+  cursor: pointer;
 }
 @media (max-width:640px) {
   header #banner {
@@ -482,6 +538,7 @@ header #banner .news_carousel .news_prev {
 #intro .wrap .story {
   margin-top: 16px;
   text-align: center;
+  line-height: 1.8rem;
 }
 @media (max-width:640px) {
   #intro {
@@ -852,8 +909,11 @@ header #banner .news_carousel .news_prev {
   #cast {
     padding-bottom: 180px;
   }
+  #cast .carousel .carousel-item img {
+    filter: none;
+  }
   #cast .carousel .slick-track {
-    padding: 40px 0;
+    padding: 50px 0;
   }
   #cast .carousel .slick-slide {
     margin: 30px;
@@ -864,7 +924,7 @@ header #banner .news_carousel .news_prev {
     padding: 0;
   }
   #cast .carousel .slick-center {
-    filter: brightness(1) !important;
+    filter: brightness(1) drop-shadow(0 0 6px rgb(222, 223, 157)) !important;
     /* 讓中間的圖片變亮 */
     transform: scale(1.5);
     /* 讓中間的圖片變大 */
@@ -965,7 +1025,8 @@ header #banner .news_carousel .news_prev {
 }
 
 #contact .staff {
-  width: 80%;
+  width: 100%;
+  max-width: 800px;
   text-align: center;
   padding-bottom: 120px;
 }
@@ -987,6 +1048,44 @@ header #banner .news_carousel .news_prev {
 
 footer {
   text-align: center;
-  background-image: url(../images/patter.jpg);
-  padding-bottom: 40px;
+  background-color: #333;
+  padding: 20px 0 40px;
+}
+footer #gotop {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-family: "MonteCarlo", cursive;
+  line-height: 20px;
+  letter-spacing: 2px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  z-index: 666;
+}
+footer #gotop::before {
+  content: "";
+  background-image: url(../images/back-to-top.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  animation: rotation 30s infinite;
+  opacity: 0.6;
+  transition: none;
+}
+footer #gotop:hover {
+  font-size: 26px;
+  line-height: 24px;
+}
+footer #gotop:hover::before {
+  animation-play-state: paused;
 }/*# sourceMappingURL=style.css.map */

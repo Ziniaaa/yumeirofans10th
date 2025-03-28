@@ -1,5 +1,5 @@
 // 設定背景
-/* JavaScript動態計算高度（如果需要） */
+/* JavaScript動態計算背景高度 */
 document.addEventListener('DOMContentLoaded', () => {
     function updateBackgroundLayer() {
         const section0 = document.getElementById('navigation');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const section8 = document.getElementById('contact');
 
 
-        const backgroundSection1To5 = document.querySelector('.background-first');
+        const backgroundSection0To5 = document.querySelector('.background-first');
         const backgroundSection7To8 = document.querySelector('.background-last');
 
         // 計算包含margin的高度
@@ -23,16 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const marginBottom = parseFloat(styles.marginBottom);
             return element.offsetHeight + marginTop + marginBottom;
         }
+        // 判斷是否為手機版（例如螢幕寬度小於 768px）
+        const isMobile = window.innerWidth < 641
 
-        // 計算section1到section5的總高度（包含margin）
-        backgroundSection1To5.style.height =
-            `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section0)}px`;
+        // 計算第一段section0到section5的總高度（包含margin）
+        backgroundSection0To5.style.height = isMobile
+            ? `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5)}px`
+            : `${getFullHeight(section0) + getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5)}px`;
 
         // 設置第二段背景的位置和高度（包含margin）
-        backgroundSection7To8.style.top =
-            `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6) + getFullHeight(section0)}px`;
+        backgroundSection7To8.style.top = isMobile
+            ? `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6)}px`
+            : `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6) + getFullHeight(section0)}px`;
+
         backgroundSection7To8.style.height =
-            `${getFullHeight(section7) + getFullHeight(section8)}px`;
+            `${getFullHeight(section7) + getFullHeight(section8) + 20}px`;
     }
 
     // 初始化和窗口大小變化時更新
@@ -169,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// 選單
+// nav選單
 $(function () {
 
     // 漢堡按鈕
@@ -177,6 +182,7 @@ $(function () {
         $(this).toggleClass('is-active');
         $('.nav-bar').toggleClass('show');
     });
+   
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -198,4 +204,41 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     observer.observe(introSection);
+});
+
+// 吊燈動畫
+const element = document.querySelector(".chandelier");
+
+element.addEventListener("click", () => {
+    element.style.animation = "none"; // 移除動畫
+    void element.offsetWidth; // 觸發重繪（強制瀏覽器刷新）
+    element.style.animation = "goback 3s, drop 5s ease-out forwards 3s, swing 5s infinite ease-out 8s"; // 重新套用動畫
+});
+
+
+// 至頂按鈕
+$(document).ready(function () {
+    $('#gotop').click(function () {
+        smoothScrollToTop(25); // 調整數字來加快滾動速度
+    });
+    
+    function smoothScrollToTop(speedMultiplier) {
+        let scrollStep = -window.scrollY / (10 / speedMultiplier); // 提高除數來加快滾動
+        function scrollAnimation() {
+            if (window.scrollY > 0) {
+                window.scrollBy(0, scrollStep);
+                requestAnimationFrame(scrollAnimation);
+            }
+        }
+        requestAnimationFrame(scrollAnimation)};
+
+    // 顯示/隱藏至頂按鈕
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 1000) {
+            $('#gotop').stop().fadeIn();
+            $('#gotop').css('display', 'flex');
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
 });

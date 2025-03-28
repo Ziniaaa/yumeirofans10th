@@ -182,7 +182,7 @@ $(function () {
         $(this).toggleClass('is-active');
         $('.nav-bar').toggleClass('show');
     });
-   
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -221,7 +221,7 @@ $(document).ready(function () {
     $('#gotop').click(function () {
         smoothScrollToTop(25); // 調整數字來加快滾動速度
     });
-    
+
     function smoothScrollToTop(speedMultiplier) {
         let scrollStep = -window.scrollY / (10 / speedMultiplier); // 提高除數來加快滾動
         function scrollAnimation() {
@@ -230,7 +230,8 @@ $(document).ready(function () {
                 requestAnimationFrame(scrollAnimation);
             }
         }
-        requestAnimationFrame(scrollAnimation)};
+        requestAnimationFrame(scrollAnimation)
+    };
 
     // 顯示/隱藏至頂按鈕
     $(window).scroll(function () {
@@ -241,4 +242,27 @@ $(document).ready(function () {
             $('#gotop').fadeOut();
         }
     });
+});
+
+// 隱藏底部火焰影片
+document.addEventListener('DOMContentLoaded', () => {
+    const videoBg = document.getElementById('video-bg');
+    const secretSection = document.getElementById('secret');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 當 secret section 進入視窗時顯示影片
+                videoBg.style.display = 'flex';
+            } else {
+                // 當 secret section 離開視窗時隱藏影片
+                videoBg.style.display = 'none';
+            }
+        });
+    }, {
+        threshold: 0, // 只要section有一部分進入視窗就觸發
+    });
+
+    // 開始觀察 secret section
+    observer.observe(secretSection);
 });

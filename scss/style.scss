@@ -36,6 +36,9 @@ section {
     // height: 50vh;
     // max-width: 1200px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-self: center;
 
     // border: 1px blue solid;
@@ -109,7 +112,7 @@ header {
     #banner {
         height: 100vh;
         width: 100%;
-        background-image: url(../images/MainVisual.png);
+        background-image: url(../images/MainVisual1.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -386,6 +389,7 @@ header {
 }
 
 #date {
+
     .date_wrap {
         max-width: 500px;
         text-align: center;
@@ -1033,6 +1037,7 @@ header {
 }
 
 #contact {
+
     .staff {
         width: 100%;
         max-width: 800px;

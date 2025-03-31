@@ -241,6 +241,39 @@ a {
     transform: rotate(360deg);
   }
 }
+@keyframes moveR {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20%) rotate(2deg);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes moveL {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-20%) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(-100%) rotate(0deg) scaleX(0.9);
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /*共用樣式區開始*/
 html {
   scroll-behavior: smooth;
@@ -254,9 +287,34 @@ body {
   font-family: "Shippori Mincho", serif;
 }
 body h3.title {
+  display: flex;
+  justify-self: center;
   text-align: center;
   font-size: 2rem;
   font-family: "MonteCarlo", cursive;
+  position: relative;
+}
+body h3.title::before {
+  content: "";
+  background-image: url(../images/h3-arrow_L.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 5%;
+  right: 140%;
+}
+body h3.title::after {
+  content: "";
+  background-image: url(../images/h3-arrow_R.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 5%;
+  left: 140%;
 }
 body main {
   position: relative;
@@ -310,11 +368,64 @@ section .preview {
   }
 }
 /*共用樣式區結束*/
-header {
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgb(26, 26, 56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+#loading.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+#loading .loading-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+#loading .loading-text span {
+  animation: blink 1.5s infinite;
+  margin: 0 4px;
+}
+#loading .loading-text span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+#loading .loading-text span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+#header {
   position: relative;
   overflow: hidden;
+  padding: 0;
 }
-header .banner_border {
+#header .curtain {
+  overflow: hidden;
+}
+#header .curtain #curtain_R {
+  height: 100vh;
+  width: auto;
+  position: absolute;
+  z-index: 999;
+  left: 48%;
+  top: 0;
+  animation: moveR 2.5s ease-in-out forwards 0.5s;
+}
+#header .curtain #curtain_L {
+  height: 100vh;
+  width: auto;
+  position: absolute;
+  z-index: 999;
+  right: 48%;
+  top: 0;
+  animation: moveL 2.5s ease-in-out forwards 0.5s;
+}
+#header .banner_border {
   height: 100vh;
   width: 100%;
   clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 100%, 100% 100%, 100% 0%);
@@ -322,7 +433,7 @@ header .banner_border {
   position: absolute;
   z-index: 1;
 }
-header #banner {
+#header #banner {
   height: 100vh;
   width: 100%;
   background-image: url(../images/MainVisual1.jpg);
@@ -336,29 +447,29 @@ header #banner {
   align-items: end;
   padding: 20px 5%;
 }
-header #banner .event_title {
+#header #banner .event_title {
   display: block;
   justify-self: end;
   border: 1px solid lightgrey;
   text-align: center;
   margin-right: 10%;
 }
-header #banner .event_title h1 {
+#header #banner .event_title h1 {
   font-size: 2rem;
 }
-header #banner .event_title h2 {
+#header #banner .event_title h2 {
   font-size: 1.4rem;
 }
-header #banner .event_title h3 {
+#header #banner .event_title h3 {
   font-size: 1.2rem;
 }
-header #banner .news_carousel {
+#header #banner .news_carousel {
   width: 250px;
   height: 150px;
   align-items: end;
   margin-left: 30px;
 }
-header #banner .news_carousel .news_prev {
+#header #banner .news_carousel .news_prev {
   background-image: url(../images/news_bg.svg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -368,7 +479,7 @@ header #banner .news_carousel .news_prev {
   text-align: center;
   line-height: 150px;
 }
-header #banner .chandelier {
+#header #banner .chandelier {
   height: 700px;
   width: auto;
   position: absolute;
@@ -378,29 +489,37 @@ header #banner .chandelier {
   cursor: pointer;
 }
 @media (max-width:640px) {
-  header #banner {
+  #header .curtain #curtain_R {
+    animation: moveR 2.5s ease-in-out forwards 0.5s;
+    left: 45%;
+  }
+  #header .curtain #curtain_L {
+    animation: moveL 2.5s ease-in-out forwards 0.5s;
+    right: 44%;
+  }
+  #header #banner {
     flex-direction: column-reverse;
     justify-content: end;
     align-items: center;
     transform: translateZ(0);
     /* 強制啟用 GPU 渲染 */
   }
-  header #banner .news_carousel {
+  #header #banner .news_carousel {
     margin: 20px 0 0;
   }
-  header #banner .event_title {
+  #header #banner .event_title {
     margin: 0;
   }
-  header #banner .event_title h1 {
+  #header #banner .event_title h1 {
     font-size: 1.4rem;
   }
-  header #banner .event_title h2 {
+  #header #banner .event_title h2 {
     font-size: 1rem;
   }
-  header #banner .event_title h3 {
+  #header #banner .event_title h3 {
     font-size: 1rem;
   }
-  header #banner .chandelier {
+  #header #banner .chandelier {
     scale: 0.8;
   }
 }
@@ -534,7 +653,7 @@ header #banner .chandelier {
 }
 
 #intro .wrap {
-  max-width: 1200px;
+  max-width: 1000px;
 }
 #intro .wrap .flaot_title {
   text-align: center;
@@ -1078,8 +1197,8 @@ footer #gotop {
   font-family: "MonteCarlo", cursive;
   line-height: 20px;
   letter-spacing: 2px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   cursor: pointer;
   position: fixed;
@@ -1095,9 +1214,9 @@ footer #gotop::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 80px;
-  height: 80px;
-  animation: rotation 30s infinite;
+  width: 60px;
+  height: 60px;
+  animation: rotation 35s infinite;
   opacity: 0.6;
   transition: none;
 }

@@ -270,3 +270,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 開始觀察 secret section
     observer.observe(secretSection);
 });
+
+// loading動畫
+window.addEventListener("load", function () {
+    let loading = document.getElementById("loading");
+    loading.classList.add("fade-out");
+    setTimeout(() => {
+        loading.style.display = "none";
+    }, 500);
+});

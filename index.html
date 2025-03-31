@@ -26,10 +26,16 @@
 
 <body>
 
-
+    <div id="loading">
+        <p class="loading-text">Loading<span>.</span><span>.</span><span>.</span></p>
+    </div>
     <!-- 主視覺區 -->
     <header>
-
+<section id="header">
+        <div class="curtain">
+            <img id="curtain_R" src="./images/curtain_R.png" alt="">
+            <img id="curtain_L" src="./images/curtain_L.png" alt="">
+        </div>
         <div class="banner_border"></div>
         <div id="banner">
             <div class="news_carousel">
@@ -46,6 +52,7 @@
             </div>
             <img class="chandelier" src="./images/chandelier01.svg" alt="">
         </div>
+    </section>
     </header>
 
     <!-- 主要內容 -->
@@ -85,12 +92,12 @@
                         data-aos-offset="300">
                         隠せなくなる</h4>
                     <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="3000"
-                        data-aos-offset="350">
+                        data-aos-offset="300" data-aos-delay="100">
 
                         それでも会いたいよ</h4>
                 </div>
-                <h3 class="title">Intro </h3>
-                <div class="story" data-aos="fade-up">
+                <h3 class="title" data-aos="fade-up">Intro </h3>
+                <div class="story" data-aos="fade-up" data-aos-delay="200">
                     <p class="text">這裡會放活動簡介或是前導故事</p>
                     <p class="text">
                         兩會理高不拿模果愛響的識候不受，和走成又我出點直足然條過術顧女廠樂汽標小半且不認其制示發業表酒是元大政，士同細們不沒然發訴，許年這，西是是行我他系，臺空臺級健，商常使人人衆著兒，然性親比臺到紙為不是標強他圖，家想苦備士。
@@ -280,8 +287,7 @@
         <small>此活動為粉絲二次創作，無任何營利行為</small>
         <!-- 至頂按鈕 -->
         <div id="gotop">
-            Back to<br>
-            Top
+            <i class="fa-solid fa-angle-up"></i>
         </div>
     </footer>
 

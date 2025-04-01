@@ -286,36 +286,6 @@ body {
   color: white;
   font-family: "Shippori Mincho", serif;
 }
-body h3.title {
-  display: flex;
-  justify-self: center;
-  text-align: center;
-  font-size: 2rem;
-  font-family: "MonteCarlo", cursive;
-  position: relative;
-}
-body h3.title::before {
-  content: "";
-  background-image: url(../images/h3-arrow_L.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 50px;
-  height: 100%;
-  position: absolute;
-  top: 5%;
-  right: 140%;
-}
-body h3.title::after {
-  content: "";
-  background-image: url(../images/h3-arrow_R.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 50px;
-  height: 100%;
-  position: absolute;
-  top: 5%;
-  left: 140%;
-}
 body main {
   position: relative;
 }
@@ -331,6 +301,33 @@ section {
 section .preview {
   font-size: 1.4rem;
   margin-top: 50px;
+}
+section .title {
+  font-size: 2rem;
+  font-family: "MonteCarlo", cursive;
+  position: relative;
+}
+section .title::before {
+  content: "";
+  background-image: url(../images/h3-arrow_L.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 5%;
+  right: 140%;
+}
+section .title::after {
+  content: "";
+  background-image: url(../images/h3-arrow_R.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 5%;
+  left: 140%;
 }
 
 /* 創建背景層 */
@@ -654,19 +651,22 @@ section .preview {
 
 #intro .wrap {
   max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#intro .wrap .flaot_title {
+#intro .wrap .float_title {
   text-align: center;
   padding: 120px 0 200px;
   font-size: 1.4rem;
   line-height: 3rem;
 }
-#intro .wrap .flaot_title h4 {
+#intro .wrap .float_title h4 {
   line-height: 2.3rem;
   font-weight: medium;
   animation: float 4s ease-in-out infinite;
 }
-#intro .wrap .flaot_title h4:nth-child(3) {
+#intro .wrap .float_title h4:nth-child(3) {
   font-size: 1.8rem;
   color: rgb(170, 74, 74);
   padding-top: 20px;
@@ -1104,6 +1104,9 @@ section .preview {
   width: 100%;
   position: absolute;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #secret .content p {
   text-align: center;

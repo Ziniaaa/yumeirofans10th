@@ -96,6 +96,15 @@ $(document).ready(function () {
         autoplaySpeed: 3000,
     }
     );
+    $('.news_carousel_M').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+
+    });
 });
 
 AOS.init({
@@ -274,8 +283,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // loading動畫
 window.addEventListener("load", function () {
     let loading = document.getElementById("loading");
+    const curtainR = document.getElementById("curtain_R");
+    const curtainL = document.getElementById("curtain_L");
+    const chandelier = document.getElementById("chandelier");
+
+
     loading.classList.add("fade-out");
     setTimeout(() => {
         loading.style.display = "none";
     }, 500);
+    curtainR.classList.add("start-animation"); // 開始動畫
+    curtainL.classList.add("start-animation"); // 開始動畫
+    chandelier.classList.add("start-animation"); // 開始動畫
 });

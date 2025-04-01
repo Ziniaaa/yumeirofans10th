@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.36 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6c3d49;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #2d211b;
+      }
+
+      .cls-3 {
+        fill: #571213;
+      }
+    </style>
+  </defs>
+  <g id="_1" data-name=" 1">
+    <g>
+      <rect class="cls-1" x="18.73" width="2.62" height="100"/>
+      <rect class="cls-1" width="2.62" height="100"/>
+      <rect class="cls-3" x="12.91" width="5.83" height="100"/>
+      <rect class="cls-3" x="2.62" width="5.83" height="100"/>
+      <rect class="cls-1" x="8.45" width="1.4" height="100"/>
+      <rect class="cls-1" x="11.51" width="1.4" height="100"/>
+      <rect class="cls-2" x="9.85" width="1.66" height="100"/>
+    </g>
+  </g>
+</svg>

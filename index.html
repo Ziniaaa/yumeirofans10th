@@ -31,28 +31,34 @@
     </div>
     <!-- 主視覺區 -->
     <header>
-<section id="header">
-        <div class="curtain">
-            <img id="curtain_R" src="./images/curtain_R.png" alt="">
-            <img id="curtain_L" src="./images/curtain_L.png" alt="">
-        </div>
-        <div class="banner_border"></div>
-        <div id="banner">
-            <div class="news_carousel">
-                <div class="news_prev">123</div>
-                <div class="news_prev">234</div>
-                <div class="news_prev">567</div>
+        <section id="header">
+            <div class="curtain">
+                <img id="curtain_R" src="./images/curtain_R.png" alt="">
+                <img id="curtain_L" src="./images/curtain_L.png" alt="">
             </div>
-            <div class="event_title">
-                <h1>RE:PHANTOM <br>
-                    of the<br>
-                    MASQUERADE</h1>
-                <h2>夢色十週年紀念茶會</h2>
-                <h3>unofficial fans event</h3>
+            <div class="banner_border">
+                <span class="decor-1"></span>
+                <span class="decor-2"></span>
+                <span class="decor-3"></span>
+                <span class="decor-4"></span>
             </div>
-            <img class="chandelier" src="./images/chandelier01.svg" alt="">
-        </div>
-    </section>
+            <div id="banner">
+                <div class="news_carousel">
+                    <div class="news_block">123</div>
+                    <div class="news_block">234</div>
+                    <div class="news_block">567</div>
+                </div>
+                <div class="event_title">
+                    <h1>RE:PHANTOM <br>
+                        of the<br>
+                        MASQUERADE</h1>
+                    <h2>夢色十週年紀念茶會</h2>
+                    <h3>unofficial fans event</h3>
+                </div>
+                <img class="chandelier" id="chandelier" src="./images/chandelier01.svg" alt="">
+            </div>
+            
+        </section>
     </header>
 
     <!-- 主要內容 -->
@@ -82,21 +88,29 @@
         <!-- 活動簡介區 -->
         <section id="intro" data-aos="fade-up">
             <div class="wrap">
-                <div class="float_title">
-                    
-                    <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="1500"
-                    data-aos-offset="100">
-                    抑えきれなくなる</h4>
-                    
-                    <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="2000"
-                    data-aos-offset="300">
-                    隠せなくなる</h4>
-                    <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="3000"
-                    data-aos-offset="300" data-aos-delay="100">
-                    
-                    それでも会いたいよ</h4>
+                <div class="news_carousel_M">
+                    <div class="news_block1">123</div>
+                    <div class="news_block1">234</div>
+                    <div class="news_block1">567</div>
+                    <div class="news_block1">123</div>
+                    <div class="news_block1">234</div>
+                    <div class="news_block1">567</div>
                 </div>
-                <h3 class="title" >Intro </h3>
+                <div class="float_title">
+
+                    <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="1500"
+                        data-aos-offset="100">
+                        抑えきれなくなる</h4>
+
+                    <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="2000"
+                        data-aos-offset="300">
+                        隠せなくなる</h4>
+                    <h4 data-aos="fade-up" data-aos-easing="ease-in-out-quad" data-aos-duration="3000"
+                        data-aos-offset="300" data-aos-delay="100">
+
+                        それでも会いたいよ</h4>
+                </div>
+                <h3 class="title">Intro </h3>
                 <div class="story" data-aos="fade-up" data-aos-delay="200">
                     <p class="text">這裡會放活動簡介或是前導故事</p>
                     <p class="text">
@@ -173,7 +187,9 @@
             <!-- 手機版內容 -->
             <div class="event_wrap phone">
                 <div class="event_cnt">
-                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-up">
+                    <figure>
+                        <img src="./images/theater_example.jpg" alt="" data-aos="fade-up">
+                    </figure>
                     <div class="txt_content" data-aos="fade-up" data-aos-delay="200">
                         <h4>演劇表演</h4>
                         <p>百老匯傳奇音樂劇 《歌劇魅影》
@@ -183,7 +199,9 @@
                 </div>
 
                 <div class="event_cnt">
-                    <img src="./images/waltz_example.jpg" alt="" data-aos="fade-up">
+                    <figure>
+                        <img src="./images/waltz_example.jpg" alt="" data-aos="fade-up">
+                    </figure>
                     <div class="txt_content" data-aos="fade-up" data-aos-delay="200">
                         <h4>舞蹈互動</h4>
                         <p>這場《歌劇魅影》的演出不僅帶來動人音樂與震撼戲劇，更特別設計了
@@ -194,7 +212,9 @@
                 </div>
 
                 <div class="event_cnt">
-                    <img src="./images/theater_example.jpg" alt="" data-aos="fade-up">
+                    <figure>
+                        <img src="./images/theater_example.jpg" alt="" data-aos="fade-up">
+                    </figure>
                     <div class="txt_content" data-aos="fade-up" data-aos-delay="200">
                         <h4>任務活動</h4>
                         <p>這不僅是一場音樂劇，更是一場沉浸式冒險體驗！現場設有多個互動關卡，觀眾可依照劇情線索，尋找劇院內的

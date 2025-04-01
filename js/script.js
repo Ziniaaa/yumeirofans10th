@@ -296,3 +296,48 @@ window.addEventListener("load", function () {
     curtainL.classList.add("start-animation"); // 開始動畫
     chandelier.classList.add("start-animation"); // 開始動畫
 });
+
+// 倒數計時
+// 設定目標時間（2025年7月1日 23:59:59）
+const targetDate = new Date("2025-07-01T23:59:59").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();  // 取得當前時間
+    const timeLeft = targetDate - now; // 計算剩餘時間
+
+    if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = "倒數結束！";
+        clearInterval(countdownTimer);
+        return;
+    }
+
+    // 計算天、時、分、秒
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // 更新倒數計時的內容
+    document.getElementById("countdown").innerHTML =
+        `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
+}
+
+// 每秒更新倒數計時
+const countdownTimer = setInterval(updateCountdown, 1000);
+
+// 立即執行一次，避免等 1 秒才顯示
+updateCountdown();
+
+$(function () {
+    $(".alert_wrap").click(function () {
+        if ($(this).css("bottom") === "-60px") {
+            $(this).css("bottom", "0px"); // 彈出地鼠
+            $(".countdown-alert").css("opacity", "1");
+
+        } else {
+            $(this).css("bottom", "-60px"); // 躲回去
+            $(".countdown-alert").css("opacity", "0");
+        }
+    });
+
+});

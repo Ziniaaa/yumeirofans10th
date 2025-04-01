@@ -167,7 +167,7 @@ section {
     padding: 0;
 
     .curtain {
-        display: none;
+        // display: none;
         overflow: hidden;
 
         #curtain_R {
@@ -1492,13 +1492,16 @@ section {
 
     padding: 0;
     width: 100%;
-    border: lightsalmon solid 1px;
+    // border: lightsalmon solid 1px;
     position: fixed;
     bottom: 0px;
+    display: none;
+
+
 
     .hole {
 
-        border: rgb(243, 30, 243) solid 1px;
+        // border: rgb(243, 30, 243) solid 1px;
         width: 100%;
         height: 80px;
         position: relative;
@@ -1510,24 +1513,24 @@ section {
             align-items: end;
             display: flex;
             flex-direction: row;
-            width: 100%;
+            width: 400px;
             height: 70px;
-            bottom: -60px;
-            right: 100px;
-            transition: bottom 0.3s ease-in-out;
+            bottom: 30px;
+            left: -350px;
+            transition: left 0.3s ease-in-out;
             animation: float 5s infinite ease-in-out;
-            border: rgb(40, 167, 15) solid 1px;
+            // border: rgb(40, 167, 15) solid 1px;
 
             .alert-content {
-                width: 30%;
+                width: 100%;
                 text-align: center;
                 cursor: pointer;
                 
                 
                 .countdown-alert {
-                    background-color: yellow;
+                    background-color:darkred;
                     font-size: $font-size-s;
-                    color: darkred;
+                    color: white;
                     opacity: 0;
                     transition: opacity 0.3s linear;
                 }
@@ -1538,15 +1541,11 @@ section {
                 height: auto;
                 cursor: pointer;
                 .hamu-png{
-
                     &:hover{
                         content: url('../images/hamu_bonk.png'); /* 滑鼠懸停時替換圖片 */
-
                     }
                 }
-            }
-
-            
+            }           
         }
     }
 
@@ -1554,6 +1553,8 @@ section {
     .hole{
         .alert_wrap{
             right: 70px;
+            bottom: 0px;
+
 
             .alert-content {
                 width: 50%;
@@ -1619,6 +1620,8 @@ footer {
 
     @media ($mediaSm) {
         #gotop {
+            bottom: 20px;
+
             &::before {
 
                 &:hover {

@@ -250,9 +250,15 @@ $(document).ready(function () {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 1000) {
             $('#gotop').stop().fadeIn();
+            $('#alert').stop().fadeIn();
+
             $('#gotop').css('display', 'flex');
+            $('#alert').css('display', 'flex');
+
         } else {
             $('#gotop').fadeOut();
+            $('#alert').fadeOut();
+
         }
     });
 });
@@ -330,13 +336,16 @@ updateCountdown();
 
 $(function () {
     $(".alert_wrap").click(function () {
-        if ($(this).css("bottom") === "-60px") {
-            $(this).css("bottom", "0px"); // 彈出地鼠
+        if ($(this).css("left") === "-350px") {
+            $(this).css("left", "0px"); // 彈出地鼠
             $(".countdown-alert").css("opacity", "1");
+            $("#gotop").css("display", "none");
 
         } else {
-            $(this).css("bottom", "-60px"); // 躲回去
+            $(this).css("left", "-350px"); // 躲回去
             $(".countdown-alert").css("opacity", "0");
+            $("#gotop").css("display", "flex");
+
         }
     });
 

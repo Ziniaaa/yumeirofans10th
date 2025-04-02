@@ -339,14 +339,29 @@ $(function () {
         if ($(this).css("left") === "-350px") {
             $(this).css("left", "0px"); // 彈出地鼠
             $(".countdown-alert").css("opacity", "1");
+            $(".alert_wrap").css("animation-play-state", "paused");
             $("#gotop").css("display", "none");
 
         } else {
             $(this).css("left", "-350px"); // 躲回去
             $(".countdown-alert").css("opacity", "0");
+            $(".alert_wrap").css("animation-play-state", "running");
             $("#gotop").css("display", "flex");
 
         }
     });
+});
 
+// 修改iframe文字
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".lyt-visually-hidden").forEach(span => {
+        span.textContent = "▶"; // 你想要的文字
+    });
+});
+
+document.getElementById("closeModal").addEventListener("click", function () {
+    const iframe = document.querySelector("lite-youtube iframe");
+    if (iframe) {
+        iframe.src = "";  // 移除 src，強制停止影片
+    }
 });

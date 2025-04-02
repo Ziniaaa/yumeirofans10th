@@ -182,3 +182,33 @@
     100% { opacity: 0; }
 }
 
+@keyframes peekaboo {
+0%{        
+    transform: translateX(-15px);
+}
+10%{        
+    transform: translateX(0px);
+}
+17%{        
+    transform: translateX(0px);
+}
+25%{        
+    transform: translateX(-30px);
+}
+42%{        
+    transform: translateX(-30px);
+}
+
+50%{        
+    transform: translateX(0px);
+}
+58%{        
+    transform: translateX(0px);
+}
+90%{
+    transform: translateX(-15px);
+}
+100%{
+    transform: translateX(-15px);
+}
+}

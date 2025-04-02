@@ -227,10 +227,12 @@
         <!-- Dance Modal 外層（包含背景遮罩） -->
         <div id="modalOverlay" class="modal-overlay">
             <div class="modal">
-                <iframe src="https://www.youtube.com/embed/c3JhyjDfZgs?si=f4ALf5R1FPgTHpFq" title="YouTube video player"
+                <lite-youtube videoid="c3JhyjDfZgs"></lite-youtube>
+
+                <!-- <iframe src="https://www.youtube.com/embed/c3JhyjDfZgs?si=f4ALf5R1FPgTHpFq" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
             </div>
             <button id="closeModal" class="modal-close">Close</button>
         </div>
@@ -313,7 +315,7 @@
                         <a class="countdown-alert" href="https://www.plurk.com/DCTonly_SFH" target="_blank"
                             rel="noopener noreferrer"> 距離報名截止還有
                             <span id="countdown"></span><br>
-                            立即報名</a>
+                            點我立刻報名</a>
                     </div>
                     <figure class="hamu"><img class="hamu-png" src="./images/hamu.png" alt=""></figure>
                 </div>
@@ -338,6 +340,8 @@
     <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
     <!-- AOS套件 -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- 輕量YT嵌入 -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.2.0/src/lite-yt-embed.js"></script>
 
     <!-- 自訂JS -->
     <script src="./js/script.js"></script>

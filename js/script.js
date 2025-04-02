@@ -103,7 +103,10 @@ $(document).ready(function () {
         arrows: false,
         autoplay: true,
         autoplaySpeed: 3000,
-
+    });
+    $('.latest_carousel').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
     });
 });
 

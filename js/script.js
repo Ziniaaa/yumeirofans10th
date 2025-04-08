@@ -368,3 +368,10 @@ document.getElementById("closeModal").addEventListener("click", function () {
         iframe.src = "";  // 移除 src，強制停止影片
     }
 });
+
+// 服裝參考
+$(function () {
+    $("#cloth-sample").click(function () {
+        $('.cloth').slideToggle(300); // 動畫開關，無需判斷
+    });
+});

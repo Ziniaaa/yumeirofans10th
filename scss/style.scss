@@ -13,12 +13,9 @@ html {
 
 body {
     background-color: $color-navy;
-    background-image: url(../images/patter.jpg);
+    // background-image: url(../images/BG_pattern.svg);
     color: white;
     font-family: "Shippori Mincho", serif;
-
-
-
 
 
     main {
@@ -29,19 +26,13 @@ body {
 }
 
 section {
-    // height: 50vh;
-    // max-width: 1200px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-self: center;
-
-    // border: 1px blue solid;
+    justify-items: center;
     padding: 5% 10%;
 
-    justify-items: center;
-    // background-image: url(../images/patter.jpg);
 
     .preview {
         font-size: $font-size-xl;
@@ -98,8 +89,12 @@ section {
         left: 0;
         width: 100%;
         height: calc(100% of intro + 100% of section2 + 100% of section3);
-        // background-color: aqua; 
-        background-image: url(../images/patter.jpg);
+        // background-image: url(../images/patter.jpg);
+        background-image: url(../images/BG_pattern.jpg);
+        background-repeat: repeat;
+        background-size: $pattern-size auto;
+
+
         z-index: -2;
     }
 
@@ -110,8 +105,10 @@ section {
         left: 0;
         width: 100%;
         height: calc(100% of section5 + 100% of section6 + 100% of section7);
-        // background-color: burlywood;
-        background-image: url(../images/patter.jpg);
+        // background-image: url(../images/patter.jpg);
+        background-image: url(../images/BG_pattern.jpg);
+        background-repeat: repeat;
+        background-size: $pattern-size auto;
         z-index: -2;
     }
 }
@@ -658,21 +655,21 @@ section {
         .float_title {
             text-align: center;
             padding: 120px 100px 120px;
-            font-size: $font-size-xl;
+            font-size: $font-size-xxl;
             line-height: 3rem;
-            background-image: radial-gradient(ellipse, #03010acb 3px, #0e0b2285 20%, transparent 65%);
+            background-image: radial-gradient(ellipse, #03010acb 3px, #0e0b2285 20%, transparent 55%);
             // border: 1px solid wheat;
             border-radius: 50%;
 
             h4 {
-                line-height: 2.3rem;
+                line-height: 2.5rem;
                 font-weight: medium;
                 animation: float 4s ease-in-out infinite;
 
                 &:nth-child(3) {
-                    font-size: $font-size-xxl;
-                    color: rgb(170, 74, 74);
-                    padding-top: 20px;
+                    font-size: $font-size-xxxl;
+                    color: rgb(110, 32, 32);
+                    padding-top: 25px;
                     font-weight: bold;
                     animation-delay: .2s;
 
@@ -681,13 +678,81 @@ section {
         }
 
         .title {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .story {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-top: $interval-m ;
             text-align: center;
             line-height: $font-size-xxl;
+
+            #trailer_wrap {
+                width: 640px;
+                height: 360px;
+                position: relative;
+                display: flex;
+                margin: 60px 0;
+
+                lite-youtube {
+                    width: 100%;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+                    cursor: pointer;
+
+                    &:hover {
+                        filter: brightness(0.9);
+                    }
+
+                    button {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateX(-50%) translateY(-50%);
+                        background: none;
+                        border: none;
+                        color: white;
+                        font-size: 60px;
+                        font-family: "MonteCarlo", cursive;
+                        cursor: pointer;
+                    }
+
+                    iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 100;
+                        background: transparent;
+
+                    }
+                }
+            }
+
+            small {
+                color: $color-gold;
+            }
+
+            #cloth-sample {
+                background-color: $color-gold;
+                border: none;
+                cursor: pointer;
+                font-size: $font-size-s;
+
+                &:hover {
+                    filter: brightness(0.8);
+                }
+            }
+
+            .cloth {
+                border: solid 1px $color-gold;
+                display: none;
+                transition: linear 0.4;
+            }
         }
     }
 
@@ -697,10 +762,12 @@ section {
 
     @media ($mediaSm) {
         padding-top: 140px;
-        padding-bottom: 50px;
+        padding-bottom: 100px;
         overflow: hidden;
 
         .wrap {
+            width: 100%;
+
             .float_title {
                 padding: 180px 0;
             }
@@ -721,6 +788,16 @@ section {
                     margin: 5px 10px;
                     text-align: center;
                     line-height: 100px;
+                }
+            }
+
+            .story {
+                // border: solid 1px lightgreen;
+                width: 100%;
+
+                #trailer_wrap {
+                    width: 100%;
+                    height: 300px;
                 }
             }
         }
@@ -884,7 +961,7 @@ section {
                 #openModal,
                 #openModal2 {
                     margin-top: $interval-l;
-                    color: coral;
+                    background-color: $color-gold;
                     border: none;
                     cursor: pointer;
 
@@ -1010,7 +1087,8 @@ section {
             background-size: cover;
             background-position: center center;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 filter: brightness(0.9);
 
             }
@@ -1022,7 +1100,7 @@ section {
                 background: none;
                 border: none;
                 color: white;
-                font-size:60px;
+                font-size: 60px;
                 font-family: "MonteCarlo", cursive;
                 cursor: pointer;
             }
@@ -1096,6 +1174,31 @@ section {
 
             img {
                 filter: drop-shadow(0 0 .6rem rgb(19, 19, 19));
+                margin-bottom: 20px;
+            }
+
+            p {
+                text-align: center;
+                align-content: center;
+                margin: auto;
+                position: relative;
+                z-index: 10;
+                aspect-ratio: 16 / 9;
+                width: 50%;
+                height: 50%;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-image: url(/images/lable.png);
+                    background-position: center;
+                    background-size: cover;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
             }
         }
 
@@ -1127,7 +1230,7 @@ section {
     .slick-dots {
         display: flex !important;
         justify-content: center;
-        bottom: -100px;
+        bottom: -60px;
         position: absolute;
         width: 100%;
 
@@ -1206,6 +1309,14 @@ section {
                 }
             }
 
+            &:nth-child(8) {
+                button {
+                    &:before {
+                        color: rgb(216, 216, 216);
+                    }
+                }
+            }
+
             &.slick-active button:before {
                 // color: red;
                 opacity: 1;
@@ -1220,7 +1331,7 @@ section {
     .slick-prev-custom,
     .slick-next-custom {
         position: absolute;
-        bottom: -110px;
+        bottom: -65px;
         /* 與 .slick-dots 對齊 */
         color: aquamarine;
         background: transparent;
@@ -1336,12 +1447,63 @@ section {
 #goods {
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 100%;
 
+    .title {
+        margin-bottom: 40px;
+    }
+
+    h4,
     p {
         text-align: center;
     }
 
+    h4 {
+        font-size: $font-size-l;
+        padding-bottom: 15px;
+    }
+
+    img {
+        max-height: 300px;
+    }
+
+    .novelty {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 80px;
+        // border: lawngreen solid;
+        gap: 40px;
+    }
+
+    .special_wrap {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+
+        .goods-item {
+            display: flex;
+            gap: 80px;
+
+            figure {
+                min-width: 250px;
+
+                img {
+                    object-fit: contain;
+
+                }
+            }
+        }
+    }
+
+    @media ($mediaSm) {
+        .special_wrap {
+            .goods-item {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }        
+    }
 }
 
 #secret {
@@ -1382,6 +1544,19 @@ section {
         // mix-blend-mode: overlay;
         filter: brightness(70%);
 
+    }
+}
+
+#join {
+    .title {
+        margin-bottom: 40px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
     }
 }
 
@@ -1450,7 +1625,7 @@ section {
 
     .staff {
         width: 100%;
-        max-width: 600px;
+        max-width: 400px;
         text-align: center;
         padding-bottom: 120px;
 
@@ -1559,7 +1734,8 @@ section {
                     color: white;
                     opacity: 0;
                     transition: opacity 0.3s linear;
-                    &:hover{
+
+                    &:hover {
                         filter: brightness(1.2);
                     }
                 }

@@ -1287,7 +1287,7 @@ section .title::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(/images/lable.png);
+  background-image: url(../images/lable.png);
   background-position: center;
   background-size: cover;
   width: 100%;

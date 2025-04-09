@@ -1263,9 +1263,10 @@ section .title::after {
 }
 #cast .carousel {
   display: flex;
+  overflow: visible;
 }
 #cast .carousel .carousel-item {
-  cursor: pointer;
+  cursor: grab;
 }
 #cast .carousel .carousel-item img {
   filter: drop-shadow(0 0 0.6rem rgb(19, 19, 19));
@@ -1300,19 +1301,24 @@ section .title::after {
 }
 #cast .carousel .carousel-item .more-hint {
   position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6);
+  bottom: 0%;
+  right: 0%;
+  background: transparent;
   color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 8px;
+  font-size: 0.8rem;
+  border: white solid 1px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
 }
 #cast .carousel .slick-track {
-  padding: 20px 0;
+  padding: 40px 0;
 }
 #cast .carousel .slick-slide {
   margin: 20px;
@@ -1323,11 +1329,14 @@ section .title::after {
   transform: scale(0.9);
 }
 #cast .carousel .slick-center {
-  filter: brightness(1) drop-shadow(0 0 0.25rem rgb(222, 223, 157)) !important;
+  filter: brightness(1) drop-shadow(0 0 0.15rem rgb(222, 223, 157)) !important;
   /* 讓中間的圖片變亮 */
   transform: scale(1.1);
   /* 讓中間的圖片變大 */
-  cursor: default;
+  cursor: pointer;
+}
+#cast .carousel .slick-center:hover {
+  transform: scale(1.12);
 }
 #cast .carousel .slick-center .more-hint {
   opacity: 1;
@@ -1458,6 +1467,9 @@ section .title::after {
     transform: scale(1.5);
     /* 讓中間的圖片變大 */
   }
+  #cast .carousel .slick-center:hover {
+    transform: scale(1.52);
+  }
   #cast .carousel .slick-dots {
     bottom: -40px;
   }
@@ -1494,11 +1506,9 @@ section .title::after {
   display: flex;
   background: black;
   margin-bottom: 20px;
-  width: 50%;
-  height: 50vh;
-  max-width: 60%;
+  max-height: 80vh;
+  aspect-ratio: 47/60;
   overflow: hidden;
-  border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
   text-align: center;
   position: absolute;
@@ -1516,12 +1526,20 @@ section .title::after {
   font-size: 2rem;
   letter-spacing: 0.4rem;
   position: absolute;
-  bottom: 15%;
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .cast-modal .cast-close:hover {
   filter: brightness(0.8);
+}
+@media (max-width:640px) {
+  .cast-modal .cast-modal-cnt {
+    width: 95%;
+  }
+  .cast-modal .cast-close {
+    bottom: 8%;
+  }
 }
 
 #goods {
@@ -1550,6 +1568,9 @@ section .title::after {
   flex-direction: column;
   margin-bottom: 80px;
   gap: 40px;
+}
+#goods .novelty p {
+  font-size: 1.2rem;
 }
 #goods .special_wrap {
   max-width: 1200px;
@@ -1582,6 +1603,9 @@ section .title::after {
   }
   #goods .special_wrap .goods-item .goods_content {
     width: 100%;
+  }
+  #goods .special_wrap .goods-item .goods_content p:nth-child(1) {
+    padding: 0 0 10px;
   }
 }
 

@@ -93,10 +93,15 @@ $(document).ready(function () {
     });
 
     // 點擊 .more-hint 開啟對應 modal
-    $('.carousel').on('click', '.more-hint', function (e) {
+    $('.carousel').on('click', '.carousel-item', function (e) {
         e.stopPropagation(); // 防止事件冒泡
-        const modalId = $(this).closest('.carousel-item').data('modal');
-        $('#' + modalId).fadeIn();
+        if ($(this).hasClass('slick-center')) {
+            const modalId = $(this).closest('.carousel-item').data('modal');
+            $('#' + modalId).fadeIn();
+        } else {
+            // 如果不是中間，就不做事或給個提示也行
+            console.log('這不是正中間的物件，不能點喔～');
+        }
     });
 
     // 關閉 modal
@@ -208,8 +213,24 @@ $(function () {
         $(this).toggleClass('is-active');
         $('.nav-bar').toggleClass('show');
     });
-
+// 點擊選單連結自動關閉
+$('.nav-bar a').click(function () {
+    $('.hamburger').removeClass('is-active');
+    $('.nav-bar').removeClass('show');
+  });
+  $(document).click(function (e) {
+    // 如果點擊的不是 .hamburger 或 .nav-bar（也不是它們的子元素）
+    if (
+      !$(e.target).closest('.nav-bar').length &&
+      !$(e.target).closest('.hamburger').length
+    ) {
+      $('.hamburger').removeClass('is-active');
+      $('.nav-bar').removeClass('show');
+    }
+    });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.getElementById("navigation");

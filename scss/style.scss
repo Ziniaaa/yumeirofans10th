@@ -1193,9 +1193,10 @@ section {
 
     .carousel {
         display: flex;
+        overflow: visible;
 
         .carousel-item {
-            cursor: pointer;
+            cursor: grab;
 
             img {
                 filter: drop-shadow(0 0 .6rem rgb(19, 19, 19));
@@ -1232,13 +1233,18 @@ section {
 
             .more-hint {
                 position: absolute;
-                bottom: 10%;
-                left: 50%;
-                transform: translateX(-50%);
-                background: rgba(0, 0, 0, 0.6);
+                bottom: 0%;
+                right: 0%;
+                background: transparent;
                 color: white;
-                padding: 8px 16px;
-                border-radius: 20px;
+                padding: 8px;
+                font-size: $font-size-s;
+                border: white solid 1px;
+                border-radius: 50%;
+                aspect-ratio: 1/1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 opacity: 0;
                 pointer-events: none;
                 transition: opacity 0.3s;
@@ -1246,7 +1252,7 @@ section {
         }
 
         .slick-track {
-            padding: 20px 0;
+            padding: 40px 0;
         }
 
         .slick-slide {
@@ -1261,11 +1267,15 @@ section {
         }
 
         .slick-center {
-            filter: brightness(1) drop-shadow(0 0 .25rem rgb(222, 223, 157)) !important;
+            filter: brightness(1) drop-shadow(0 0 .15rem rgb(222, 223, 157)) !important;
             /* 讓中間的圖片變亮 */
             transform: scale(1.1);
             /* 讓中間的圖片變大 */
-            cursor: default;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.12);
+            }
 
             .more-hint {
                 opacity: 1;
@@ -1467,6 +1477,9 @@ section {
                 /* 讓中間的圖片變亮 */
                 transform: scale(1.5);
                 /* 讓中間的圖片變大 */
+                &:hover {
+                    transform: scale(1.52);
+                }
             }
 
             .slick-dots {
@@ -1488,11 +1501,12 @@ section {
             }
         }
     }
-   
+
 }
+
 .cast-modal {
     display: none;
-/* 預設隱藏 */
+    /* 預設隱藏 */
     position: fixed;
     top: 0;
     left: 0;
@@ -1511,22 +1525,21 @@ section {
         display: flex;
         background: black;
         margin-bottom: 20px;
-        width: 50%;
-        height: 50vh;
-        
-        max-width: 60%;
-        // padding-bottom: 56.25%;
-        // /* 16:9 比例 */
+        // width: 470px;
+        // height: 600px;
+
+        max-height: 80vh;
+        aspect-ratio: 47/60;
         overflow: hidden;
-        border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
         text-align: center;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
-    .cast-close{
+
+    .cast-close {
         background: none;
         border: none;
         font-size: 24px;
@@ -1536,14 +1549,22 @@ section {
         font-size: $font-size-xxxl;
         letter-spacing: 0.4rem;
         position: absolute;
-        bottom: 15%;
+        bottom: 0;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
+
         &:hover {
             filter: brightness(0.8);
         }
     }
-    
+@media ($mediaSm) {
+    .cast-modal-cnt {
+        width: 95%;
+    }
+    .cast-close {
+        bottom: 8%;
+    }
+}
 }
 
 
@@ -1579,6 +1600,9 @@ section {
         margin-bottom: 80px;
         // border: lawngreen solid;
         gap: 40px;
+        p{
+            font-size: $font-size-l;
+        }
     }
 
     .special_wrap {
@@ -1622,6 +1646,11 @@ section {
 
                 .goods_content {
                     width: 100%;
+                    p{
+                        &:nth-child(1) {
+                            padding: 0 0 10px;
+                        }
+                    }
                 }
             }
         }

@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const section4 = document.getElementById('cast');
         const section5 = document.getElementById('goods');
         const section6 = document.getElementById('secret');
-        const section7 = document.getElementById('links');
-        const section8 = document.getElementById('contact');
+        const section7 = document.getElementById('join');
+        const section8 = document.getElementById('links');
+        const section9 = document.getElementById('contact');
 
 
         const backgroundSection0To5 = document.querySelector('.background-first');
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6) + getFullHeight(section0)}px`;
 
         backgroundSection7To8.style.height =
-            `${getFullHeight(section7) + getFullHeight(section8) + 20}px`;
+            `${getFullHeight(section7) + getFullHeight(section8) + getFullHeight(section9) + 20}px`;
     }
 
     // 初始化和窗口大小變化時更新
@@ -90,6 +91,19 @@ $(document).ready(function () {
             }
         ]
     });
+
+    // 點擊 .more-hint 開啟對應 modal
+    $('.carousel').on('click', '.more-hint', function (e) {
+        e.stopPropagation(); // 防止事件冒泡
+        const modalId = $(this).closest('.carousel-item').data('modal');
+        $('#' + modalId).fadeIn();
+    });
+
+    // 關閉 modal
+    $('.cast-modal').click(function () {
+        $(this).closest('.cast-modal').fadeOut();
+    });
+
 
     $('.news_carousel').slick({
         autoplay: true,

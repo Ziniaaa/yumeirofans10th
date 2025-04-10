@@ -303,6 +303,30 @@ a {
     transform: translateX(-15px);
   }
 }
+@keyframes shine {
+  from {
+    left: -75%;
+  }
+  to {
+    left: 125%;
+  }
+}
+@keyframes shine-border {
+  from {
+    filter: brightness(1);
+  }
+  40% {
+    filter: brightness(1.8);
+  }
+  to {
+    filter: brightness(1);
+  }
+}
+@keyframes moveBG {
+  to {
+    background-position: var(--bgSize) 0;
+  }
+}
 /*共用樣式區開始*/
 html {
   scroll-behavior: smooth;

@@ -100,7 +100,7 @@ $(document).ready(function () {
             $('#' + modalId).fadeIn();
         } else {
             // 如果不是中間，就不做事或給個提示也行
-            console.log('這不是正中間的物件，不能點喔～');
+            // console.log('這不是正中間的物件，不能點喔～');
         }
     });
 
@@ -134,23 +134,24 @@ AOS.init({
     once: true // 只執行一次動畫
 });
 
-console.log(document.getElementById("openModal"));
 
 // YT影片modal
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JS 加載成功！");
 
     const openModalBtn = document.getElementById("openModal");
     const closeModalBtn = document.getElementById("closeModal");
     const modalOverlay = document.getElementById("modalOverlay");
+    const openModalBtn2 = document.getElementById("openModal2");
 
-    if (!openModalBtn || !closeModalBtn || !modalOverlay) {
-        console.error("找不到 Modal 相關元素，請檢查 HTML ID！");
-        return;
-    }
 
     // 打開 Modal
     openModalBtn.addEventListener("click", function () {
+        console.log("開啟 Modal");
+        modalOverlay.classList.add("active");
+    });
+
+    // 打開 手機Modal
+    openModalBtn2.addEventListener("click", function () {
         console.log("開啟 Modal");
         modalOverlay.classList.add("active");
     });
@@ -170,39 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// YT影片modal_手機
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("JS 加載成功！");
-
-    const openModalBtn = document.getElementById("openModal2");
-    const closeModalBtn = document.getElementById("closeModal");
-    const modalOverlay = document.getElementById("modalOverlay");
-
-    if (!openModalBtn || !closeModalBtn || !modalOverlay) {
-        console.error("找不到 Modal 相關元素，請檢查 HTML ID！");
-        return;
-    }
-
-    // 打開 Modal
-    openModalBtn.addEventListener("click", function () {
-        console.log("開啟 Modal");
-        modalOverlay.classList.add("active");
-    });
-
-    // 關閉 Modal（點擊關閉按鈕）
-    closeModalBtn.addEventListener("click", function () {
-        console.log("關閉 Modal");
-        modalOverlay.classList.remove("active");
-    });
-
-    // 點擊背景區域關閉 Modal
-    modalOverlay.addEventListener("click", function (event) {
-        if (event.target === modalOverlay) {
-            console.log("點擊背景，關閉 Modal");
-            modalOverlay.classList.remove("active");
-        }
-    });
-});
 
 
 // nav選單
@@ -393,7 +361,7 @@ $(function () {
 // 修改iframe文字
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".lyt-visually-hidden").forEach(span => {
-        span.textContent = "▶"; // 你想要的文字
+        span.textContent = "▸"; // 你想要的文字
     });
 });
 

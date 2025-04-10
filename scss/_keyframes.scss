@@ -149,11 +149,11 @@
 
 @keyframes moveR {
     0% {
-        transform:translateX(0px);
+        transform: translateX(0px);
     }
 
-    50%{
-        transform:translateX(20%) rotate(2deg);
+    50% {
+        transform: translateX(20%) rotate(2deg);
     }
 
     100% {
@@ -163,52 +163,96 @@
 
 @keyframes moveL {
     0% {
-        transform:translateX(0px);
+        transform: translateX(0px);
     }
 
-    50%{
-        transform:translateX(-20%) rotate(-2deg);
+    50% {
+        transform: translateX(-20%) rotate(-2deg);
     }
 
     100% {
-        transform: translateX(-100%)  rotate(0deg) scaleX(0.9);
+        transform: translateX(-100%) rotate(0deg) scaleX(0.9);
     }
 }
 
 
 @keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes peekaboo {
-0%{        
-    transform: translateX(-15px);
-}
-10%{        
-    transform: translateX(0px);
-}
-17%{        
-    transform: translateX(0px);
-}
-25%{        
-    transform: translateX(-30px);
-}
-42%{        
-    transform: translateX(-30px);
+    0% {
+        transform: translateX(-15px);
+    }
+
+    10% {
+        transform: translateX(0px);
+    }
+
+    17% {
+        transform: translateX(0px);
+    }
+
+    25% {
+        transform: translateX(-30px);
+    }
+
+    42% {
+        transform: translateX(-30px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    58% {
+        transform: translateX(0px);
+    }
+
+    90% {
+        transform: translateX(-15px);
+    }
+
+    100% {
+        transform: translateX(-15px);
+    }
 }
 
-50%{        
-    transform: translateX(0px);
+@keyframes shine {
+    from {
+        left: -75%;
+    }
+
+    to {
+        left: 125%;
+    }
 }
-58%{        
-    transform: translateX(0px);
+
+@keyframes shine-border {
+    from {
+        filter: brightness(1);
+    }
+
+    40% {
+        filter: brightness(1.8);
+    }
+
+    to {
+        filter: brightness(1);
+    }
 }
-90%{
-    transform: translateX(-15px);
-}
-100%{
-    transform: translateX(-15px);
-}
+@keyframes moveBG{
+    to{
+        background-position:var(--bgSize) 0;
+    }
 }

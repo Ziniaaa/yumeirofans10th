@@ -31,7 +31,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    padding: 0% 10%;
+    padding: 5% 10%;
 
 
     .preview {
@@ -651,7 +651,6 @@ section {
 
 
 #intro {
-    padding-bottom: 150px;
 
     .wrap {
         max-width: 1200px;
@@ -662,7 +661,7 @@ section {
 
         .float_title {
             text-align: center;
-            padding: 150px 100px 150px;
+            padding: 120px 100px 120px;
             font-size: $font-size-xxl;
             line-height: 3rem;
             background-image: radial-gradient(ellipse, #03010acb 3px, #0e0b2285 20%, transparent 55%);
@@ -670,39 +669,32 @@ section {
             border-radius: 50%;
 
             h4 {
-                line-height: 4.5rem;
+                line-height: 2.5rem;
                 font-weight: medium;
                 animation: float 4s ease-in-out infinite;
 
                 &:nth-child(3) {
                     font-size: $font-size-xxxl;
-                    color: rgb(134, 33, 33);
+                    color: rgb(110, 32, 32);
                     padding-top: 25px;
-                    font-weight: bolder;
+                    font-weight: bold;
                     animation-delay: .2s;
+
                 }
             }
         }
 
         .title {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .story {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: $interval-m ;
             text-align: center;
-            line-height: $font-size-xxxl;
-
-            .text {
-                span {
-                    color: $color-gold;
-                    font-size: $font-size-xl;
-                    font-weight: bold;
-                    letter-spacing: 0.3rem;
-                }
-            }
+            line-height: $font-size-xxl;
 
             .text_m {
                 display: none;
@@ -713,7 +705,7 @@ section {
                 height: 360px;
                 position: relative;
                 display: flex;
-                margin: 120px 0;
+                margin: 60px 0;
 
                 lite-youtube {
                     width: 100%;
@@ -784,7 +776,7 @@ section {
 
     @media ($mediaSm) {
         padding-top: 140px;
-        padding-bottom: 150px;
+        padding-bottom: 100px;
         overflow: hidden;
 
         .wrap {
@@ -819,6 +811,7 @@ section {
             }
 
             .story {
+                // border: solid 1px lightgreen;
                 width: 100%;
 
                 .text {
@@ -827,14 +820,6 @@ section {
 
                 .text_m {
                     display: flex;
-                    flex-direction: column;
-
-                    span {
-                        color: $color-gold;
-                        font-size: $font-size-l;
-                        font-weight: bold;
-                        letter-spacing: 0.3rem;
-                    }
                 }
 
                 #trailer_wrap {
@@ -847,7 +832,6 @@ section {
 }
 
 #date {
-    padding-bottom: 150px;
 
     .date_wrap {
         max-width: 500px;
@@ -886,16 +870,14 @@ section {
                 align-self: center;
                 margin-left: $interval-s;
                 transition: transform 0.1s ease-in-out;
-                color: lightgray;
 
                 .fa-map-location-dot {
-                    transform: translateY(3px);
-                    padding-left: 5px;
+                    color: lightgray;
                 }
 
                 &:hover {
-                    transform: scale(1.05);
-                    filter: brightness(0.8);
+                    transform: scale(0.9);
+                    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
                 }
             }
         }
@@ -934,7 +916,6 @@ section {
 
 #event {
     overflow: hidden;
-    padding-bottom: 150px;
 
     .title {
         margin-bottom: 80px;
@@ -1127,8 +1108,6 @@ section {
         text-align: center;
         position: relative;
 
-        animation: show 0.5s both;
-
         lite-youtube {
             width: 100%;
             background-repeat: no-repeat;
@@ -1204,7 +1183,7 @@ section {
     width: 100%;
     height: auto;
     overflow: hidden;
-    padding: 0;
+    padding: 5% 0;
     padding-bottom: 200px;
 
     .carousel-container {
@@ -1598,10 +1577,9 @@ section {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-bottom: 150px;
 
     .title {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
     }
 
     h4,
@@ -1623,7 +1601,9 @@ section {
 
     .novelty {
         display: flex;
-        margin-bottom: 150px;
+        // flex-direction: column;
+        margin-bottom: 80px;
+        // border: lawngreen solid;
         gap: 40px;
 
         div {
@@ -1737,9 +1717,6 @@ section {
 }
 
 #join {
-    padding-top: 80px;
-    padding-bottom: 150px;
-
     .title {
         margin-bottom: 40px;
     }
@@ -1748,72 +1725,15 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 80px;
-        position: relative;
-
-        .sign-up {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-
-            // SVG 外框邊線
-            &::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 200%;
-                height: 200%;
-                transform: translate(-50%, -50%);
-                background-image: url(../images/sign-up_frame.svg);
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-                z-index: 0;
-                pointer-events: none;
-            }
-
-            .text {
-                position: relative;
-                display: inline-block;
-                font-size: $font-size-xxl;
-                font-weight: bold;
-                letter-spacing: 0.3rem;
-                --bgSize: 300%;
-                background: linear-gradient(
-                    90deg,#666 0%,
-                    #fff 50%,
-                    #666 100%)
-                    0 0 /var(--bgSize)100%;
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-                z-index: 1;
-                overflow: hidden;
-
-                        }
-
-            // hover 啟動動畫
-            &:hover {
-                .text {
-                    animation: moveBG 2s ease-in-out infinite;
-                }
-
-                &::after {
-                    animation: shine-border 2s ease-in-out infinite;
-                }
-            }
-        }
-
+        gap: 40px;
     }
 }
 
 
 #links {
-    padding-bottom: 150px;
 
     .title {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
     }
 
     .content {
@@ -2014,10 +1934,6 @@ section {
 
                 .alert-content {
                     width: 50%;
-                }
-
-                .hamu {
-                    width: 100px;
                 }
             }
         }

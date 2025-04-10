@@ -83,7 +83,7 @@ $(document).ready(function () {
             {
                 breakpoint: 480,
                 settings: {
-                    // arrows: false,
+                    arrows: false,
                     centerMode: true,
                     centerPadding: '80px',
                     slidesToShow: 1
@@ -213,20 +213,20 @@ $(function () {
         $(this).toggleClass('is-active');
         $('.nav-bar').toggleClass('show');
     });
-// 點擊選單連結自動關閉
-$('.nav-bar a').click(function () {
-    $('.hamburger').removeClass('is-active');
-    $('.nav-bar').removeClass('show');
-  });
-  $(document).click(function (e) {
-    // 如果點擊的不是 .hamburger 或 .nav-bar（也不是它們的子元素）
-    if (
-      !$(e.target).closest('.nav-bar').length &&
-      !$(e.target).closest('.hamburger').length
-    ) {
-      $('.hamburger').removeClass('is-active');
-      $('.nav-bar').removeClass('show');
-    }
+    // 點擊選單連結自動關閉
+    $('.nav-bar a').click(function () {
+        $('.hamburger').removeClass('is-active');
+        $('.nav-bar').removeClass('show');
+    });
+    $(document).click(function (e) {
+        // 如果點擊的不是 .hamburger 或 .nav-bar（也不是它們的子元素）
+        if (
+            !$(e.target).closest('.nav-bar').length &&
+            !$(e.target).closest('.hamburger').length
+        ) {
+            $('.hamburger').removeClass('is-active');
+            $('.nav-bar').removeClass('show');
+        }
     });
 });
 

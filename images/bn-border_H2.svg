@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_1" data-name=" 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142.58 142.46">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6c3d49;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #2d211b;
+      }
+
+      .cls-3 {
+        fill: #571213;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="-4.93" y="82.71" width="152.44" height="3.74"/>
+  <rect class="cls-1" x="-4.93" y="56.02" width="152.44" height="3.73"/>
+  <rect class="cls-3" x="-4.93" y="59.75" width="152.44" height="8.3"/>
+  <rect class="cls-3" x="-4.93" y="74.4" width="152.44" height="8.3"/>
+  <rect class="cls-1" x="-4.93" y="68.05" width="152.44" height="1.99"/>
+  <rect class="cls-1" x="-4.93" y="72.41" width="152.44" height="1.99"/>
+  <rect class="cls-2" x="-4.93" y="70.05" width="152.44" height="2.37"/>
+</svg>

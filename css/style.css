@@ -476,7 +476,7 @@ section .title::after {
   content: "";
   width: 100%;
   height: 30px;
-  background-image: url("../images/bn-border_H.svg");
+  background-image: url(../images/2bn-border_H.svg);
   background-repeat: repeat;
   background-size: contain;
   position: absolute;
@@ -486,7 +486,7 @@ section .title::after {
   content: "";
   width: 100%;
   height: 30px;
-  background-image: url(../images/bn-border_H.svg);
+  background-image: url(../images/2bn-border_H.svg);
   background-repeat: repeat;
   background-size: contain;
   position: absolute;
@@ -496,7 +496,7 @@ section .title::after {
   content: "";
   width: 30px;
   height: 100%;
-  background-image: url(../images/bn-border_V.svg);
+  background-image: url(../images/2bn-border_V.svg);
   background-repeat: repeat;
   background-size: contain;
   position: absolute;
@@ -506,7 +506,7 @@ section .title::after {
   content: "";
   width: 30px;
   height: 100%;
-  background-image: url(../images/bn-border_V.svg);
+  background-image: url(../images/2bn-border_V.svg);
   background-repeat: repeat;
   background-size: contain;
   position: absolute;
@@ -657,11 +657,11 @@ section .title::after {
 }
 @media (max-width:640px) {
   #header .curtain #curtain_R {
-    animation: moveR 2.5s ease-in-out forwards 0.5s;
+    animation: moveR 3.5s ease-in-out forwards 1s;
     left: 45%;
   }
   #header .curtain #curtain_L {
-    animation: moveL 2.5s ease-in-out forwards 0.5s;
+    animation: moveL 3.5s ease-in-out forwards 1s;
     right: 44%;
   }
   #header #banner {
@@ -1565,9 +1565,14 @@ section .title::after {
 }
 #goods .novelty {
   display: flex;
-  flex-direction: column;
   margin-bottom: 80px;
   gap: 40px;
+}
+#goods .novelty div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
 }
 #goods .novelty p {
   font-size: 1.2rem;
@@ -1597,6 +1602,9 @@ section .title::after {
   padding: 20px;
 }
 @media (max-width:640px) {
+  #goods .novelty {
+    flex-direction: column;
+  }
   #goods .special_wrap .goods-item {
     flex-direction: column;
     gap: 20px;

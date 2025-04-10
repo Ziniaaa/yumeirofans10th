@@ -199,7 +199,9 @@ section {
             }
         }
 
+
     }
+
 
     .banner_border {
         height: 100vh;
@@ -214,7 +216,7 @@ section {
                 content: "";
                 width: 100%;
                 height: 30px;
-                background-image: url('../images/bn-border_H.svg');
+                background-image: url(../images/2bn-border_H.svg);
                 background-repeat: repeat;
                 background-size: contain;
                 position: absolute;
@@ -226,7 +228,7 @@ section {
                 content: "";
                 width: 100%;
                 height: 30px;
-                background-image: url(../images/bn-border_H.svg);
+                background-image: url(../images/2bn-border_H.svg);
                 background-repeat: repeat;
                 background-size: contain;
                 position: absolute;
@@ -239,7 +241,7 @@ section {
                 content: "";
                 width: 30px;
                 height: 100%;
-                background-image: url(../images/bn-border_V.svg);
+                background-image: url(../images/2bn-border_V.svg);
                 background-repeat: repeat;
                 background-size: contain;
                 position: absolute;
@@ -250,7 +252,7 @@ section {
                 content: "";
                 width: 30px;
                 height: 100%;
-                background-image: url(../images/bn-border_V.svg);
+                background-image: url(../images/2bn-border_V.svg);
                 background-repeat: repeat;
                 background-size: contain;
                 position: absolute;
@@ -446,12 +448,12 @@ section {
         // 手機版
         .curtain {
             #curtain_R {
-                animation: moveR 2.5s ease-in-out forwards .5s;
+                animation: moveR 3.5s ease-in-out forwards 1s;
                 left: 45%;
             }
 
             #curtain_L {
-                animation: moveL 2.5s ease-in-out forwards .5s;
+                animation: moveL 3.5s ease-in-out forwards 1s;
                 right: 44%;
             }
         }
@@ -1476,6 +1478,7 @@ section {
                 filter: brightness(1) drop-shadow(0 0 6px rgb(222, 223, 157)) !important;
                 /* 讓中間的圖片變亮 */
                 transform: scale(1.5);
+
                 /* 讓中間的圖片變大 */
                 &:hover {
                     transform: scale(1.52);
@@ -1557,14 +1560,16 @@ section {
             filter: brightness(0.8);
         }
     }
-@media ($mediaSm) {
-    .cast-modal-cnt {
-        width: 95%;
+
+    @media ($mediaSm) {
+        .cast-modal-cnt {
+            width: 95%;
+        }
+
+        .cast-close {
+            bottom: 8%;
+        }
     }
-    .cast-close {
-        bottom: 8%;
-    }
-}
 }
 
 
@@ -1596,11 +1601,19 @@ section {
 
     .novelty {
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         margin-bottom: 80px;
         // border: lawngreen solid;
         gap: 40px;
-        p{
+
+        div {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 20px;
+        }
+
+        p {
             font-size: $font-size-l;
         }
     }
@@ -1639,6 +1652,10 @@ section {
     }
 
     @media ($mediaSm) {
+        .novelty {
+            flex-direction: column;
+        }
+
         .special_wrap {
             .goods-item {
                 flex-direction: column;
@@ -1646,7 +1663,8 @@ section {
 
                 .goods_content {
                     width: 100%;
-                    p{
+
+                    p {
                         &:nth-child(1) {
                             padding: 0 0 10px;
                         }

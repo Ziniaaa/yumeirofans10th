@@ -1536,12 +1536,12 @@ section {
             }
 
             .slick-slide {
-                margin: 30px;
+                margin: 20px;
                 transition: transform 0.3s ease;
                 /* 讓切換平滑 */
                 filter: brightness(0.7);
                 /* 預設讓非中間的圖片變暗 */
-                padding: 0;
+                padding: 10px;
 
             }
 

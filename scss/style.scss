@@ -14,6 +14,7 @@ html {
 body {
     background-color: $color-navy;
     background-image: url(../images/BG_pattern.jpg);
+    background-size: cover;
     color: white;
     font-family: "Shippori Mincho", serif;
 
@@ -362,9 +363,10 @@ section {
     #banner {
         height: 100vh;
         width: 100%;
-        background-image: url(../images/MainVisual1.jpg);
+        background-image: url(../images/MainVisual_demo.jpg);
         background-repeat: no-repeat;
-        background-size: cover;
+        // background-size: cover;
+        background-size: auto 100%;
         background-position: center center;
         background-attachment: fixed; //視差效果
         // transform: translateZ(0);
@@ -374,6 +376,44 @@ section {
         justify-content: space-between;
         align-items: end;
         padding: 20px 5%;
+        position: relative;
+        @media ($mediaSm) {
+            background-image: url(../images/MainVisual_demoSm.jpg);
+            animation: bg-slide 10s ease-in-out ;
+        }
+
+        #curtain_replaceR {
+            height: 100vh;
+            width: 10vw;
+            position: absolute;
+            right: 0;
+            background-image: url(../images/curtain_R.png);
+            background-size: cover;
+            background-position: left;
+            // border: red solid 2px;
+            animation: swingCurtain 10s infinite ;
+
+            @media (max-width:1660px) {
+                display: none;
+            }
+        }
+
+        #curtain_replaceL {
+            height: 100vh;
+            width: 10vw;
+            position: absolute;
+            left: 0;
+            background-image: url(../images/curtain_L.png);
+            background-size: cover;
+            background-position: right;
+            // border: blue solid 2px;
+            animation: swingCurtain 10s infinite ;
+
+            @media (max-width:1660px) {
+                display: none;
+            }
+        }
+
 
 
         .event_title {
@@ -401,7 +441,7 @@ section {
             width: 250px;
             height: 150px;
             align-items: end;
-            margin-left: 10%;
+            margin-left: -40%;
             margin-bottom: 30px;
             cursor: pointer;
 
@@ -439,6 +479,14 @@ section {
 
             &.start-animation {
                 animation-play-state: running;
+            }
+        }
+    }
+
+    @media ($mediaIpadAir) {
+        #banner {
+            .news_carousel {
+                margin-left: -10%;
             }
         }
     }
@@ -489,6 +537,8 @@ section {
 
             .chandelier {
                 scale: 0.8;
+                animation: drop 5s ease-out forwards 10s, swing 5s infinite ease-out 15s;
+
             }
         }
     }
@@ -1780,18 +1830,16 @@ section {
                 font-weight: bold;
                 letter-spacing: 0.3rem;
                 --bgSize: 300%;
-                background: linear-gradient(
-                    90deg,#666 0%,
-                    #fff 50%,
-                    #666 100%)
-                    0 0 /var(--bgSize)100%;
+                background: linear-gradient(90deg, #666 0%,
+                        #fff 50%,
+                        #666 100%) 0 0 /var(--bgSize)100%;
                 background-clip: text;
                 -webkit-background-clip: text;
                 color: transparent;
                 z-index: 1;
                 overflow: hidden;
 
-                        }
+            }
 
             // hover 啟動動畫
             &:hover {

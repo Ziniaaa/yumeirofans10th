@@ -327,6 +327,28 @@ a {
     background-position: var(--bgSize) 0;
   }
 }
+@keyframes swingCurtain {
+  0% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+}
+@keyframes bg-slide {
+  0% {
+    background-position: left center;
+  }
+  80% {
+    background-position: right center;
+  }
+  100% {
+    background-position: center center;
+  }
+}
 /*共用樣式區開始*/
 html {
   scroll-behavior: smooth;

@@ -210,17 +210,17 @@ section {
 
         box-sizing: border-box;
         border: 90px solid #571213;
-        border-image-source: url('../images/border-image.png');
+        border-image-source: url(../images/border-image.png);
         border-image-slice: 100;
         // border-image-width: 90px;
         border-image-repeat: stretch;
         position: absolute;
         z-index: 1;
         clip-path: polygon(0% 0%, 0% 100%, 8% 100%, 8% 8%, 92% 8%, 92% 92%, 8% 92%, 8% 100%, 100% 100%, 100% 0%);
-        -webkit-border-image: url('../images/border-image.png') 100 stretch;
-        -moz-border-image: url('../images/border-image.png') 100 stretch;
-        -o-border-image: url('../images/border-image.png') 100 stretch;
-        border-image: url('../images/border-image.png') 100 stretch;
+        -webkit-border-image: url(../images/border-image.png) 100 stretch;
+        -moz-border-image: url(../images/border-image.png) 100 stretch;
+        -o-border-image: url(../images/border-image.png) 100 stretch;
+        border-image: url(../images/border-image.png) 100 stretch;
 
         @media ($mediaSm) {
             border-image-width: 90px;

@@ -91,6 +91,14 @@ $(document).ready(function () {
             }
         ]
     });
+    //intro照片
+    $('.photoSlick').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        infinite: true,
+        fade: true,
+        cssEase: 'linear'
+    });
 
     // 點擊 .more-hint 開啟對應 modal
     $('.carousel').on('click', '.carousel-item', function (e) {
@@ -311,7 +319,7 @@ window.addEventListener("load", function () {
 
 // 倒數計時
 // 設定目標時間（2025年7月1日 23:59:59）
-const targetDate = new Date("2025-07-01T23:59:59").getTime();
+const targetDate = new Date("2025-08-31T23:59:59").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();  // 取得當前時間

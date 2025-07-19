@@ -204,6 +204,26 @@ section {
     }
 
 
+    .border_image {
+        width: 100%;
+        height: 100vh;
+
+        box-sizing: border-box;
+        // border: 30px solid #000;
+        border-image-source: url(../images/border-image.png);
+        border-image-slice: 100;
+        border-image-width: 90px;
+        border-image-repeat: repeat;
+        position: absolute;
+        z-index: 1;
+        clip-path: polygon(0% 0%, 0% 100%, 8% 100%, 8% 8%, 92% 8%, 92% 92%, 8% 92%, 8% 100%, 100% 100%, 100% 0%);
+    
+    @media ($mediaSm) {
+                border-image-width: 60px;
+
+    }
+    }
+
     .banner_border {
         height: 100vh;
         width: 100%;
@@ -378,14 +398,18 @@ section {
         padding: 20px 5%;
         position: relative;
 
+        @media ($mediaMd) {
+            background-size: cover;
+            background-attachment: scroll;
+        }
+
         @media ($mediaSm) {
             background-image: url(../images/MainVisual_demoSm.jpg);
+            background-size: auto 100%;
             animation: bg-slide 10s ease-in-out;
         }
 
-        @media ($mediaMd) {
-            background-size: cover;
-        }
+
 
         #curtain_replaceR {
             height: 100vh;

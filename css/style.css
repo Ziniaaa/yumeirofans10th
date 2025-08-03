@@ -1028,9 +1028,15 @@ section .title::after {
 }
 #intro .wrap .story .photoSlick {
   width: 100%;
+  height: 100%;
   max-width: 500px;
   height: auto;
   margin: 100px 0;
+}
+#intro .wrap .story .photoSlick img {
+  max-height: 500px;
+  width: auto;
+  margin: auto;
 }
 #intro .wrap .story small {
   color: #DAA857;
@@ -1056,9 +1062,11 @@ section .title::after {
   transform: translateY(-1px);
 }
 #intro .wrap .story .cloth {
-  border: solid 1px #DAA857;
   display: none;
   transition: linear 0.4;
+}
+#intro .wrap .story .cloth img {
+  max-height: 400px;
 }
 #intro .news_carousel_M {
   display: none;
@@ -1249,13 +1257,25 @@ section .title::after {
 #event .event_wrap .event_cnt .txt_content #openModal,
 #event .event_wrap .event_cnt .txt_content #openModal2 {
   margin-top: 24px;
-  background-color: #DAA857;
-  border: none;
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #d4af37, #a37a2e);
+  color: #3a2e1c;
+  font-family: "Shippori Mincho";
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 #event .event_wrap .event_cnt .txt_content #openModal:hover,
 #event .event_wrap .event_cnt .txt_content #openModal2:hover {
-  filter: brightness(0.8);
+  background: linear-gradient(to bottom, #ddcb85, #a37a2e);
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.4), 0 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
 }
 #event .phone {
   display: none;

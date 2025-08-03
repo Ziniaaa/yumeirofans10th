@@ -839,14 +839,11 @@ section {
             .photoSlick {
                 width: 100%;
                 height: 100%;
-                max-width: 500px;
+                max-width: 350px;
                 height: auto;
                 margin: 100px 0;
-
-                img {
-                    max-height: 500px;
-                    width: auto;
-                    margin: auto;
+                .slick-slide{
+                    padding: 0 30px;
                 }
             }
 

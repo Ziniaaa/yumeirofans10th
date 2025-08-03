@@ -1029,14 +1029,12 @@ section .title::after {
 #intro .wrap .story .photoSlick {
   width: 100%;
   height: 100%;
-  max-width: 500px;
+  max-width: 350px;
   height: auto;
   margin: 100px 0;
 }
-#intro .wrap .story .photoSlick img {
-  max-height: 500px;
-  width: auto;
-  margin: auto;
+#intro .wrap .story .photoSlick .slick-slide {
+  padding: 0 30px;
 }
 #intro .wrap .story small {
   color: #DAA857;

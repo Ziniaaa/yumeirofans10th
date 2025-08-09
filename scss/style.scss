@@ -1923,6 +1923,7 @@ section {
                 background-size: contain;
                 z-index: 0;
                 pointer-events: none;
+                animation: shine-border 2s ease-in-out infinite;
             }
 
             .text {
@@ -1940,19 +1941,19 @@ section {
                 color: transparent;
                 z-index: 1;
                 overflow: hidden;
-
+animation: moveBG 2s ease-in-out infinite;
             }
 
             // hover 啟動動畫
-            &:hover {
-                .text {
-                    animation: moveBG 2s ease-in-out infinite;
-                }
+            // &:hover {
+            //     .text {
+            //         animation: moveBG 2s ease-in-out infinite;
+            //     }
 
-                &::after {
-                    animation: shine-border 2s ease-in-out infinite;
-                }
-            }
+            //     &::after {
+            //         animation: shine-border 2s ease-in-out infinite;
+            //     }
+            // }
         }
 
     }

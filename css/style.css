@@ -1860,6 +1860,7 @@ section .title::after {
   background-size: contain;
   z-index: 0;
   pointer-events: none;
+  animation: shine-border 2s ease-in-out infinite;
 }
 #join div .sign-up .text {
   position: relative;
@@ -1874,12 +1875,7 @@ section .title::after {
   color: transparent;
   z-index: 1;
   overflow: hidden;
-}
-#join div .sign-up:hover .text {
   animation: moveBG 2s ease-in-out infinite;
-}
-#join div .sign-up:hover::after {
-  animation: shine-border 2s ease-in-out infinite;
 }
 
 #links {

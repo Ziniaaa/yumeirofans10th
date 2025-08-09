@@ -677,7 +677,7 @@ section .title::after {
 }
 @media (max-width:640px) {
   #header #banner {
-    background-image: url(../images/main_dance.jpg);
+    background-image: url(../images/main_danceSm.jpg);
     background-size: auto 100%;
     animation: bg-slide 10s ease-in-out;
   }

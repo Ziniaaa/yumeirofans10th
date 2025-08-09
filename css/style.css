@@ -657,7 +657,7 @@ section .title::after {
 #header #banner {
   height: 100vh;
   width: 100%;
-  background-image: url(../images/MainVisual_demo.jpg);
+  background-image: url(../images/main_dance.jpg);
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center center;
@@ -677,7 +677,7 @@ section .title::after {
 }
 @media (max-width:640px) {
   #header #banner {
-    background-image: url(../images/MainVisual_demoSm.jpg);
+    background-image: url(../images/main_dance.jpg);
     background-size: auto 100%;
     animation: bg-slide 10s ease-in-out;
   }
@@ -1029,9 +1029,9 @@ section .title::after {
 #intro .wrap .story .photoSlick {
   width: 100%;
   height: 100%;
-  max-width: 350px;
+  max-width: 600px;
   height: auto;
-  margin: 100px 0;
+  margin: 80px 0;
 }
 #intro .wrap .story .photoSlick .slick-slide {
   padding: 0 30px;
@@ -1041,7 +1041,7 @@ section .title::after {
 }
 #intro .wrap .story #cloth-sample {
   display: inline-block;
-  padding: 10px 24px;
+  padding: 5px 16px;
   border: 1px solid transparent;
   border-radius: 3px;
   background: linear-gradient(to bottom, #d4af37, #a37a2e);
@@ -1211,7 +1211,7 @@ section .title::after {
 #event .event_wrap .event_cnt figure {
   max-width: 500px;
   display: flex;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4/2.6;
   flex: 1;
 }
 #event .event_wrap .event_cnt figure img {
@@ -1836,7 +1836,7 @@ section .title::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
+  margin-top: 80px;
   position: relative;
 }
 #join div .sign-up {

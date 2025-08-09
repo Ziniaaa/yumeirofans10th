@@ -749,6 +749,8 @@ section .title::after {
 }
 #header #banner .news_carousel .news_block a {
   color: white;
+  font-size: large;
+  letter-spacing: 1px;
 }
 #header #banner .news_carousel_M {
   display: none;

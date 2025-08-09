@@ -1,5 +1,50 @@
 // 設定背景
 /* JavaScript動態計算背景高度 */
+// document.addEventListener('DOMContentLoaded', () => {
+//     function updateBackgroundLayer() {
+//         const section0 = document.getElementById('navigation');
+//         const section1 = document.getElementById('intro');
+//         const section2 = document.getElementById('date');
+//         const section3 = document.getElementById('event');
+//         const section4 = document.getElementById('cast');
+//         const section5 = document.getElementById('goods');
+//         const section6 = document.getElementById('secret');
+//         const section7 = document.getElementById('join');
+//         const section8 = document.getElementById('links');
+//         const section9 = document.getElementById('contact');
+
+
+//         const backgroundSection0To5 = document.querySelector('.background-first');
+//         const backgroundSection7To8 = document.querySelector('.background-last');
+
+//         // 計算包含margin的高度
+//         function getFullHeight(element) {
+//             const styles = window.getComputedStyle(element);
+//             const marginTop = parseFloat(styles.marginTop);
+//             const marginBottom = parseFloat(styles.marginBottom);
+//             return element.offsetHeight + marginTop + marginBottom;
+//         }
+//         // 判斷是否為手機版（例如螢幕寬度小於 768px）
+//         const isMobile = window.innerWidth < 641
+
+//         // 計算第一段section0到section5的總高度（包含margin）
+//         backgroundSection0To5.style.height = isMobile
+//             ? `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5)}px`
+//             : `${getFullHeight(section0) + getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5)}px`;
+
+//         // 設置第二段背景的位置和高度（包含margin）
+//         backgroundSection7To8.style.top = isMobile
+//             ? `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6)}px`
+//             : `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6) + getFullHeight(section0)}px`;
+
+//         backgroundSection7To8.style.height =
+//             `${getFullHeight(section7) + getFullHeight(section8) + getFullHeight(section9) + 20}px`;
+//     }
+
+//     // 初始化和窗口大小變化時更新
+//     updateBackgroundLayer();
+//     window.addEventListener('resize', updateBackgroundLayer);
+// });
 document.addEventListener('DOMContentLoaded', () => {
     function updateBackgroundLayer() {
         const section0 = document.getElementById('navigation');
@@ -13,36 +58,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const section8 = document.getElementById('links');
         const section9 = document.getElementById('contact');
 
-
         const backgroundSection0To5 = document.querySelector('.background-first');
         const backgroundSection7To8 = document.querySelector('.background-last');
 
-        // 計算包含margin的高度
         function getFullHeight(element) {
             const styles = window.getComputedStyle(element);
             const marginTop = parseFloat(styles.marginTop);
             const marginBottom = parseFloat(styles.marginBottom);
             return element.offsetHeight + marginTop + marginBottom;
         }
-        // 判斷是否為手機版（例如螢幕寬度小於 768px）
-        const isMobile = window.innerWidth < 641
 
-        // 計算第一段section0到section5的總高度（包含margin）
+        const isMobile = window.innerWidth < 641;
+
         backgroundSection0To5.style.height = isMobile
             ? `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5)}px`
             : `${getFullHeight(section0) + getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5)}px`;
 
-        // 設置第二段背景的位置和高度（包含margin）
         backgroundSection7To8.style.top = isMobile
             ? `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6)}px`
-            : `${getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6) + getFullHeight(section0)}px`;
+            : `${getFullHeight(section0) + getFullHeight(section1) + getFullHeight(section2) + getFullHeight(section3) + getFullHeight(section4) + getFullHeight(section5) + getFullHeight(section6)}px`;
 
         backgroundSection7To8.style.height =
             `${getFullHeight(section7) + getFullHeight(section8) + getFullHeight(section9) + 20}px`;
     }
 
-    // 初始化和窗口大小變化時更新
-    updateBackgroundLayer();
+    // 1️⃣ 等整個頁面載入完成再執行第一次
+    window.addEventListener('load', updateBackgroundLayer);
+
+    // 2️⃣ 視窗大小改變時更新
     window.addEventListener('resize', updateBackgroundLayer);
 });
 
@@ -245,20 +288,7 @@ $(document).ready(function () {
         //捲動到座標0位置
         $('html,body').animate({ scrollTop: 0 }, 800)
     });
-    // $('#gotop').click(function () {
-    //     smoothScrollToTop(25); // 調整數字來加快滾動速度
-    // });
-
-    // function smoothScrollToTop(speedMultiplier) {
-    //     let scrollStep = -window.scrollY / (10 / speedMultiplier); // 提高除數來加快滾動
-    //     function scrollAnimation() {
-    //         if (window.scrollY > 0) {
-    //             window.scrollBy(0, scrollStep);
-    //             requestAnimationFrame(scrollAnimation);
-    //         }
-    //     }
-    //     requestAnimationFrame(scrollAnimation)
-    // };
+    
 
     // 顯示/隱藏至頂按鈕
     $(window).scroll(function () {
@@ -318,7 +348,7 @@ window.addEventListener("load", function () {
 });
 
 // 倒數計時
-// 設定目標時間（2025年7月1日 23:59:59）
+// 設定目標時間（2025年8月31日 23:59:59）
 const targetDate = new Date("2025-08-31T23:59:59").getTime();
 
 function updateCountdown() {

@@ -409,7 +409,8 @@ section {
         @media ($mediaSm) {
             background-image: url(../images/main_danceSm.jpg);
             background-size: auto 100%;
-            animation: bg-slide 10s ease-in-out;
+            animation: bg-slide 20s ease-in-out infinite;
+            animation-delay: 1s;
         }
 
 
@@ -451,11 +452,11 @@ section {
         .event_title {
             display: block;
             justify-self: end;
-            border: 1px solid lightgrey;
+            // border: 1px solid lightgrey;
             text-align: center;
-            margin-right: 10%;
+            margin-right: 8%;
             margin-bottom: 30px;
-
+max-width: 400px;
             h1 {
                 font-size: $font-size-xxxl;
             }
@@ -1816,7 +1817,7 @@ section {
                 p {
                     &:nth-child(1) {
                         font-size: $font-size-l;
-                        padding: 20px;
+                        padding-bottom: 20px;
                     }
                 }
             }

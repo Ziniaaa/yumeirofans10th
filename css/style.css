@@ -342,11 +342,20 @@ a {
   0% {
     background-position: left center;
   }
-  80% {
+  5% {
+    background-position: left center;
+  }
+  50% {
     background-position: right center;
   }
-  100% {
+  70% {
     background-position: center center;
+  }
+  80% {
+    background-position: center center;
+  }
+  100% {
+    background-position: left center;
   }
 }
 /*共用樣式區開始*/
@@ -679,7 +688,8 @@ section .title::after {
   #header #banner {
     background-image: url(../images/main_danceSm.jpg);
     background-size: auto 100%;
-    animation: bg-slide 10s ease-in-out;
+    animation: bg-slide 20s ease-in-out infinite;
+    animation-delay: 1s;
   }
 }
 #header #banner #curtain_replaceR {
@@ -715,10 +725,10 @@ section .title::after {
 #header #banner .event_title {
   display: block;
   justify-self: end;
-  border: 1px solid lightgrey;
   text-align: center;
-  margin-right: 10%;
+  margin-right: 8%;
   margin-bottom: 30px;
+  max-width: 400px;
 }
 #header #banner .event_title h1 {
   font-size: 2rem;
@@ -1776,7 +1786,7 @@ section .title::after {
 }
 #goods .special_wrap .goods-item .goods_content p:nth-child(1) {
   font-size: 1.2rem;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 @media (max-width:640px) {
   #goods .novelty {

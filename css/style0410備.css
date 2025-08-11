@@ -342,11 +342,20 @@ a {
   0% {
     background-position: left center;
   }
-  80% {
+  5% {
+    background-position: left center;
+  }
+  50% {
     background-position: right center;
   }
-  100% {
+  70% {
     background-position: center center;
+  }
+  80% {
+    background-position: center center;
+  }
+  100% {
+    background-position: left center;
   }
 }
 /*共用樣式區開始*/

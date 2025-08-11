@@ -349,52 +349,52 @@ window.addEventListener("load", function () {
 
 // 倒數計時
 // 設定目標時間（2025年8月31日 23:59:59）
-const targetDate = new Date("2025-08-31T23:59:59").getTime();
+// const targetDate = new Date("2025-08-31T23:59:59").getTime();
 
-function updateCountdown() {
-    const now = new Date().getTime();  // 取得當前時間
-    const timeLeft = targetDate - now; // 計算剩餘時間
+// function updateCountdown() {
+//     const now = new Date().getTime();  // 取得當前時間
+//     const timeLeft = targetDate - now; // 計算剩餘時間
 
-    if (timeLeft <= 0) {
-        document.getElementById("countdown").innerHTML = "倒數結束！";
-        clearInterval(countdownTimer);
-        return;
-    }
+//     if (timeLeft <= 0) {
+//         document.getElementById("countdown").innerHTML = "倒數結束！";
+//         clearInterval(countdownTimer);
+//         return;
+//     }
 
-    // 計算天、時、分、秒
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+//     // 計算天、時、分、秒
+//     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+//     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+//     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    // 更新倒數計時的內容
-    document.getElementById("countdown").innerHTML =
-        `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
-}
+//     // 更新倒數計時的內容
+//     document.getElementById("countdown").innerHTML =
+//         `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
+// }
 
-// 每秒更新倒數計時
-const countdownTimer = setInterval(updateCountdown, 1000);
+// // 每秒更新倒數計時
+// const countdownTimer = setInterval(updateCountdown, 1000);
 
-// 立即執行一次，避免等 1 秒才顯示
-updateCountdown();
+// // 立即執行一次，避免等 1 秒才顯示
+// updateCountdown();
 
-$(function () {
-    $(".alert_wrap").click(function () {
-        if ($(this).css("left") === "-350px") {
-            $(this).css("left", "0px"); // 彈出地鼠
-            $(".countdown-alert").css("opacity", "1");
-            $(".alert_wrap").css("animation-play-state", "paused");
-            $("#gotop").css("display", "none");
+// $(function () {
+//     $(".alert_wrap").click(function () {
+//         if ($(this).css("left") === "-350px") {
+//             $(this).css("left", "0px"); // 彈出地鼠
+//             $(".countdown-alert").css("opacity", "1");
+//             $(".alert_wrap").css("animation-play-state", "paused");
+//             $("#gotop").css("display", "none");
 
-        } else {
-            $(this).css("left", "-350px"); // 躲回去
-            $(".countdown-alert").css("opacity", "0");
-            $(".alert_wrap").css("animation-play-state", "running");
-            $("#gotop").css("display", "flex");
+//         } else {
+//             $(this).css("left", "-350px"); // 躲回去
+//             $(".countdown-alert").css("opacity", "0");
+//             $(".alert_wrap").css("animation-play-state", "running");
+//             $("#gotop").css("display", "flex");
 
-        }
-    });
-});
+//         }
+//     });
+// });
 
 // 修改iframe文字
 document.addEventListener("DOMContentLoaded", function () {

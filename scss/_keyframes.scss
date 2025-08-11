@@ -275,12 +275,38 @@
 
 @keyframes bg-slide {
     0% {
-      background-position: left center;
+        background-position: left center;
     }
-    80% {
-      background-position: right center;
+
+    5% {
+        background-position: left center;
     }
-    100%{
+
+    50% {
+        background-position: right center;
+    }
+
+    70% {
         background-position: center center;
-      }
-  }
+    }
+
+    80% {
+        background-position: center center;
+    }
+
+    100% {
+        background-position: left center;
+    }
+}
+
+//   @keyframes bg-slide {
+//     0% {
+//       background-position: left center;
+//     }
+//     80% {
+//       background-position: right center;
+//     }
+//     100%{
+//         background-position: center center;
+//       }
+//   }

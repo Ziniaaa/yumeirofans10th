@@ -411,8 +411,31 @@ document.getElementById("closeModal").addEventListener("click", function () {
 });
 
 // 服裝參考
+// $(function () {
+//     $("#cloth-sample").click(function () {
+//         $('.cloth').slideToggle(300); // 動畫開關，無需判斷
+//     });
+// });
 $(function () {
+    // 點擊開關
     $("#cloth-sample").click(function () {
-        $('.cloth').slideToggle(300); // 動畫開關，無需判斷
+        $('.cloth').slideToggle(300);
     });
+
+    // 監聽滾動事件
+    $(window).on('scroll', function () {
+        const $cloth = $('.cloth');
+        if ($cloth.is(':visible') && !isInViewport($cloth[0],200)) {
+            $cloth.slideUp(300); // 自動收合
+        }
+    });
+
+    // 判斷元素是否在畫面內（加入緩衝距離 buffer）
+    function isInViewport(el, buffer = 0) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.bottom > 0 + buffer &&
+            rect.top < (window.innerHeight || document.documentElement.clientHeight) - buffer
+        );
+    }
 });

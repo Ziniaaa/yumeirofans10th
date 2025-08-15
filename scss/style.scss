@@ -456,7 +456,8 @@ section {
             text-align: center;
             margin-right: 8%;
             margin-bottom: 30px;
-max-width: 400px;
+            max-width: 400px;
+
             h1 {
                 font-size: $font-size-xxxl;
             }
@@ -479,9 +480,10 @@ max-width: 400px;
             cursor: pointer;
 
             .news_block {
-                background-image: url(../images/news_bg.svg);
+                // background-image: url(../images/news_bg.svg);
                 background-repeat: no-repeat;
                 background-position: center center;
+                background-size: contain;
                 width: 250px;
                 height: 150px;
                 margin: 0 20px;
@@ -492,7 +494,22 @@ max-width: 400px;
                     color: white;
                     font-size: large;
                     letter-spacing: 1px;
+                    width: 250px;
+                    height: 150px;
                 }
+
+            }
+
+            .bg1 {
+                background-image: url(../images/news_register.png);
+            }
+
+            .bg2 {
+                background-image: url(../images/news_movie.png);
+            }
+
+            .bg3 {
+                background-image: url(../images/news_plurk.png)
             }
         }
 
@@ -845,7 +862,8 @@ max-width: 400px;
                 max-width: 600px;
                 height: auto;
                 margin: 80px 0;
-                .slick-slide{
+
+                .slick-slide {
                     padding: 0 30px;
                 }
             }
@@ -928,20 +946,40 @@ max-width: 400px;
                 height: 250px;
                 display: block;
 
+                .slick-track {
+display: flex;
+
+}
+                
                 .news_block1 {
-                    background-image: url(../images/news_bg.svg);
+                    // background-image: url(../images/news_bg.svg);
                     background-repeat: no-repeat;
                     background-position: center center;
-                    width: 250px;
+                    background-size:contain;
+                    width: 200px;
                     height: 120px;
-                    margin: 5px 10px;
+                    margin: 5px 5px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
                     a {
                         color: white;
+                        width: 200px;
+                        height: 120px;
                     }
+                }
+
+                .bg1 {
+                    background-image: url(../images/news_register.png);
+                }
+
+                .bg2 {
+                    background-image: url(../images/news_movie.png);
+                }
+
+                .bg3 {
+                    background-image: url(../images/news_plurk.png)
                 }
             }
 
@@ -1942,7 +1980,7 @@ max-width: 400px;
                 color: transparent;
                 z-index: 1;
                 overflow: hidden;
-animation: moveBG 2s ease-in-out infinite;
+                animation: moveBG 2s ease-in-out infinite;
             }
 
             // hover 啟動動畫

@@ -501,7 +501,6 @@ section .title::after {
   left: 48%;
   top: 0;
   animation: moveR 2.5s ease-in-out forwards 0.5s;
-  animation-play-state: paused;
   /* 預設暫停 */
 }
 #header .curtain #curtain_R.start-animation {
@@ -515,7 +514,6 @@ section .title::after {
   right: 48%;
   top: 0;
   animation: moveL 2.5s ease-in-out forwards 0.5s;
-  animation-play-state: paused;
   /* 預設暫停 */
 }
 #header .curtain #curtain_L.start-animation {
@@ -666,8 +664,9 @@ section .title::after {
 #header #banner {
   height: 100vh;
   width: 100%;
-  background-image: url(../images/main_dance.jpg);
+  background-image: url(../images/MainVisual.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
   background-size: auto 100%;
   background-position: center center;
   background-attachment: fixed;
@@ -686,7 +685,7 @@ section .title::after {
 }
 @media (max-width:640px) {
   #header #banner {
-    background-image: url(../images/main_danceSm.jpg);
+    background-image: url(../images/MainVisual_Sm.jpg);
     background-size: auto 100%;
     animation: bg-slide 20s ease-in-out infinite;
     animation-delay: 1s;
@@ -696,16 +695,11 @@ section .title::after {
   height: 100vh;
   width: 10vw;
   position: absolute;
-  right: 0;
+  right: 0%;
   background-image: url(../images/curtain_R.png);
   background-size: cover;
   background-position: left;
   animation: swingCurtain 10s infinite;
-}
-@media (max-width: 1660px) {
-  #header #banner #curtain_replaceR {
-    display: none;
-  }
 }
 #header #banner #curtain_replaceL {
   height: 100vh;
@@ -716,11 +710,6 @@ section .title::after {
   background-size: cover;
   background-position: right;
   animation: swingCurtain 10s infinite;
-}
-@media (max-width: 1660px) {
-  #header #banner #curtain_replaceL {
-    display: none;
-  }
 }
 #header #banner .event_title {
   display: block;
@@ -743,7 +732,7 @@ section .title::after {
   width: 250px;
   height: 150px;
   align-items: end;
-  margin-left: -40%;
+  margin-left: -60%;
   margin-bottom: 30px;
   cursor: pointer;
 }

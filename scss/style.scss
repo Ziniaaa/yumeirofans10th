@@ -1881,10 +1881,15 @@ section {
         font-family: Arial;
         font-size: 14px;
         font-weight: bold;
-        padding: 12px 16px;
+        padding: 12px 26px;
         text-decoration: none;
         text-shadow: 0px 1px 0px #ffffff;
 margin: 0 10px;
+a{
+        color: #505739;
+
+}
+
     }
 
     @media ($mediaSm) {

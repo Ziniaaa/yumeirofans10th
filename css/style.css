@@ -124,7 +124,7 @@ img {
 a {
   display: block;
   /*將a預設的inline改為block，才能設定間距及寬高給超連結空間，排版上較方便*/
-  color: plum;
+  color: #505739;
   /*直接設定連結顏色*/
   text-decoration: none;
 }
